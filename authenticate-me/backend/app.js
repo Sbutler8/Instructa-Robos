@@ -21,23 +21,23 @@ if (!isProduction) {
   // enable cors only in development
   app.use(cors());
 }
-  // helmet helps set a variety of headers to better secure your app
-  app.use(helmet({
-    contentSecurityPolicy: false
-  }));
+// helmet helps set a variety of headers to better secure your app
+app.use(helmet({
+  contentSecurityPolicy: false
+}));
 
-  // Set the _csrf token and create req.csrfToken method
-  app.use(
-    csurf({
-      cookie: {
-        secure: isProduction,
-        sameSite: isProduction && "Lax",
-        httpOnly: true,
-      },
-    })
-  );
+// Set the _csrf token and create req.csrfToken method
+app.use(
+  csurf({
+    cookie: {
+      secure: isProduction,
+      sameSite: isProduction && "Lax",
+      httpOnly: true,
+    },
+  })
+);
 
-  app.use(routes);
+app.use(routes);
 
 /************  ERROR HANDLING  *************/
 
@@ -61,5 +61,4 @@ app.use((err, _req, _res, next) => {
   next(err);
 });
 
-
-  module.exports = app;
+module.exports = app;
