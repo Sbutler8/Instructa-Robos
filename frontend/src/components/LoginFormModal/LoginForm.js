@@ -13,37 +13,54 @@ function LoginForm() {
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password })).catch(
       (res) => {
+        console.log('DATA:',res.data)
         if (res.data && res.data.errors) setErrors(res.data.errors);
       }
     );
   };
 
+  const moveEyes = (event) => {
+    const eye = document.querySelectorAll('.eye');
+    eye.forEach(eye => {
+      let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+      let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+      let radian = Math.atan2(event.pageX - x, event.pageY - y);
+      let rotation = (radian * (100 / Math.PI) * -1) + 320;
+      eye.style.transform = "rotate("+rotation+"deg)"
+    })
+  }
+
   return (
     <form onSubmit={handleSubmit}>
+      <div className="eyebox" >
+        <div className="eye" id="lefteye"></div>
+        <div className="eye"id="righteye"></div>
+      </div>
+      <img src="../../images/instructa-robos-logo.png" alt='' />
       <ul>
+        {console.log('ERRORS:',errors)}
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
+      <input id="username"
+        placeholder="Username or Email"
+        type="text"
+        value={credential}
+        onChange={(e) => setCredential(e.target.value)}
+        required
+      />
+      <input id="password"
+        placeholder="Password"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
       <button type="submit">Log In</button>
+      <script>
+        {document.querySelector('body').addEventListener('mousemove', moveEyes)}
+      </script>
     </form>
   );
 }
