@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: 'projectId',
       foreignKey: 'categoryId'
     }
-    List.belongsToMany(models.Project, columnMapping);
+    Category.belongsToMany(models.Project, columnMapping);
   };
   return Category;
 };
