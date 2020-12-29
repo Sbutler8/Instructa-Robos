@@ -1,23 +1,20 @@
 import React from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
-import NavBar from '../NavBar';
-import UserHomePage from '../UserHomePage';
+import NavigationBar from '../NavigationBar';
 
 function Navigation({ isLoaded }){
-  const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <>
-      {history.push(`/projects`)}
-      <ProfileButton user={sessionUser} />
-      <NavBar />
+        <ProfileButton user={sessionUser} />
+        <NavigationBar />
       </>
     );
   } else {

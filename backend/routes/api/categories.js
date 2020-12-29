@@ -1,11 +1,12 @@
 const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
-const { Project, Category } = require('../../db/models');
+const { Category } = require('../../db/models');
 
 router.get('/', asyncHandler(async function(_req, res) {
-    const projects = await Project.findAll();
-    res.json({ projects });
+    const categories = await Category.findAll();
+    console.log('CATEGORIES:',categories)
+    res.json({ categories });
   }));
 
 module.exports = router;

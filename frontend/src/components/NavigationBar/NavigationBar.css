@@ -1,4 +1,4 @@
-.navBar {
+.topNav {
     display:grid;
     position: sticky;
     grid-template-columns: "home Basics Digital Analog Communication Control Sensors Display Strings USB" 30px
