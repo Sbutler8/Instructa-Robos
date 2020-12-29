@@ -25,7 +25,7 @@ function UserHomePage() {
                     <div className="project">
                         <img id="robotPic" src={project.robotPicURL}></img>
                         <Link to={`/project/${project.id}`} >
-                            <div>{project.name}</div>
+                            <div >{project.name}</div>
                         </Link>
                         <div className="description">{project.description}</div>
                     </div>

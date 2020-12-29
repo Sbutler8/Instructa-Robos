@@ -1,14 +1,38 @@
+.navBar {
+    display:flex;
+    flex-direction: column;
+
+}
+
 .topNav {
-    display:grid;
-    position: sticky;
-    grid-template-columns: "home Basics Digital Analog Communication Control Sensors Display Strings USB" 30px
-                           "logo name projects search"
+    display:inline-grid;
+    grid-template-columns: repeat(10, 10%);
+    background-color: rgb(85,85,85);
+    height:28px;
+}
+
+.bottomNav {
+    display: flex;
+    justify-content: row;
+    align-items: center;
+    height: 90px;
+    background-color: rgb(238,238,238);
+}
+
+#category {
+    color: white;
 }
 
 #logo {
     height:65px;
     width: auto;
-    grid-area: "name";
+}
+
+#text {
+    font-family: "myriad-pro",Helvetica,Arial,sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 4px;
 }
 
 li {
