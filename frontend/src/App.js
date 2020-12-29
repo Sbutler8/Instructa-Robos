@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import UserHomePage from "./components/UserHomePage";
+import ProjectPage from "./components/ProjectPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,8 +25,8 @@ function App() {
         <Route exact path="/">
           <UserHomePage />
         </Route>
-        <Route path="/project/:projectId">
-          <div>Project Page</div>
+        <Route path="/projects/:projectId">
+          <ProjectPage />
         </Route>
       </Switch>
     )}

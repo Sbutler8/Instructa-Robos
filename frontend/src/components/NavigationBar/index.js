@@ -30,6 +30,7 @@ function NavigationBar() {
         <div className="bottomNav">
           <img id="logo" src="../../images/instructa-robos-logo.png" alt=''/>
           <span id="text" >instructarobos</span>
+          <button id="projectButton">Projects</button>
         </div>
       </div>
     </>

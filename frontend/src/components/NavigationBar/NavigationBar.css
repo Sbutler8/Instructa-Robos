@@ -9,6 +9,7 @@
     grid-template-columns: repeat(10, 10%);
     background-color: rgb(85,85,85);
     height:28px;
+    padding-top:12px;
 }
 
 .bottomNav {
@@ -17,10 +18,14 @@
     align-items: center;
     height: 90px;
     background-color: rgb(238,238,238);
+    padding-left:18px;
 }
 
 #category {
-    color: white;
+    color: #ccc;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 0.6px;
+    font-size: 12px;
 }
 
 #logo {
@@ -33,6 +38,27 @@
     font-size: 22px;
     font-weight: 700;
     margin-left: 4px;
+}
+
+#projectButton {
+    color: #333;
+    top: -2px;
+    margin: 0 15px;
+    background-color: #fff;
+    border-color: #ccc;
+    background-image: none;
+    border: 1px solid rgb(182, 180, 180);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    /* margin-bottom: 0; */
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-shadow: none;
 }
 
 li {

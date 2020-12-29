@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { getProjects } from "../../store/projects";
 import { Link, Redirect } from 'react-router-dom';
 import './UserHomePage.css';
+import NavigationBar from '../NavigationBar';
 
 function UserHomePage() {
     const dispatch = useDispatch();
@@ -19,12 +20,13 @@ function UserHomePage() {
 
     return (
       <>
+        <NavigationBar />
         <div className="projects">
             {projectArray.map(project => {
                 return (
                     <div className="project">
                         <img id="robotPic" src={project.robotPicURL}></img>
-                        <Link to={`/project/${project.id}`} >
+                        <Link to={`/projects/${project.id}`} >
                             <div >{project.name}</div>
                         </Link>
                         <div className="description">{project.description}</div>

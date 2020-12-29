@@ -14,7 +14,6 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
         <ProfileButton user={sessionUser} />
-        <NavigationBar />
       </>
     );
   } else {
