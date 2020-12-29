@@ -1,0 +1,18 @@
+.projects {
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+
+.project {
+    width: 150px;
+    margin:10px;
+}
+
+#robotPic {
+    width: 150px;
+}
+
+.description {
+    font-size: 13px;
+}

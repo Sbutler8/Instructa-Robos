@@ -4,9 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
     code: DataTypes.TEXT,
-    robotPic: DataTypes.STRING,
+    robotPicURL: DataTypes.STRING,
     userId: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER
   }, {});
   Project.associate = function(models) {
     Project.hasMany(models.AddedFunctionality, { foreignKey: 'projectId'});

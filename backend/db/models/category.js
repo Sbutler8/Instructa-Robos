@@ -2,8 +2,14 @@
 module.exports = (sequelize, DataTypes) => {
   const Category = sequelize.define('Category', {
     name: DataTypes.STRING,
-    projectId: DataTypes.INTEGER
-  }, {});
+  },
+  {
+    defaultScope: {
+      attributes: {
+        exclude: ['createdAt', 'updatedAt'],
+      },
+    },
+  });
   Category.associate = function(models) {
     const columnMapping = {
       through: 'CategoriesAndProject',
