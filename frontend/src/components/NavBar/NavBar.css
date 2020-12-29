@@ -1,0 +1,16 @@
+.navBar {
+    display:grid;
+    position: sticky;
+    grid-template-columns: "home Basics Digital Analog Communication Control Sensors Display Strings USB" 30px
+                           "logo name projects search"
+}
+
+#logo {
+    height:65px;
+    width: auto;
+    grid-area: "name";
+}
+
+li {
+    list-style-type: none;
+}
