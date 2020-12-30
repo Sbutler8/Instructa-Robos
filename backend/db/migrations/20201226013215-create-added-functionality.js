@@ -13,6 +13,10 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      code: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+      },
       vidPic: {
         type: Sequelize.BLOB,
         allowNull:true
@@ -21,6 +25,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull:false,
         references: { model: 'Projects' }
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('now'),
       }
     });
   },
