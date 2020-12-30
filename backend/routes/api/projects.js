@@ -11,8 +11,8 @@ router.get('/', asyncHandler(async function(_req, res) {
 
 router.get('/:id', asyncHandler(async function(req, res) {
   console.log('PARAMS:', req.params)
-  // const project = await Project.findByPk(Number(req.params.id));
-  // console.log('ID:----------------------->',project)
+  const project = await Project.findByPk(Number(req.params.id));
+  console.log(res.json({ project }));
   res.json({ project });
 }));
 
