@@ -5,7 +5,6 @@ const { Category } = require('../../db/models');
 
 router.get('/', asyncHandler(async function(_req, res) {
     const categories = await Category.findAll();
-    console.log('CATEGORIES:',categories)
     res.json({ categories });
   }));
 

@@ -13,12 +13,9 @@ export const getProjects = () => async dispatch => {
   };
 
 export const getProjectDetails = (id) => async (dispatch) => {
-  const response = await fetch(`/api/projects/${id}`);
-
-  if (response.ok) {
-    const projectObj = await response.json();
-    dispatch(load(projectObj));
-  }
+  console.log('ID:',id)
+  const res = await fetch(`/api/projects/${id}`);
+  dispatch(load(res.data.project));
 };
 
 const initialState = {};
