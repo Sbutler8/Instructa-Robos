@@ -1,7 +1,6 @@
 import React, { useSelector, useDispatch} from 'react-redux';
 import { useEffect } from "react";
 import { getCategories } from "../../store/categories";
-import NavBar from '.';
 import { Link } from 'react-router-dom';
 import './NavigationBar.css';
 
@@ -10,7 +9,6 @@ function NavigationBar() {
     useEffect(() => dispatch(getCategories()), [dispatch]);
 
     const categories = useSelector((state) => state.categories);
-    // console.log(projects);
     const categoryArray = Object.values(categories);
 
   return (
@@ -19,7 +17,7 @@ function NavigationBar() {
         <div className="topNav">
           {categoryArray.map(category => {
             return (
-                <div className="category">
+                <div key={category.id} className="category">
                     <Link to={`/projects/${category.name}`} >
                         <div id="category">{category.name}</div>
                     </Link>

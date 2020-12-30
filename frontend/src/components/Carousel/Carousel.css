@@ -1,0 +1,31 @@
+.midSection {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+}
+
+.midSectionTitles {
+    text-transform: uppercase;
+    font-family: "myriad-pro-condensed",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.midSectionBlocks {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.45;
+    font-family: "myriad-pro",Helvetica,Arial,sans-serif;
+}
+
+.midSectionBlocks p {
+    color: #555;
+    font-size: 18px;
+    line-height: 1.45;
+    font-family: "myriad-pro",Helvetica,Arial,sans-serif;
+}
+
+hr {
+    border-top-color: #ccc;
+    margin: 15px 2.5vw 30px;
+}

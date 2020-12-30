@@ -1,27 +1,33 @@
 import React, { useSelector, useDispatch} from 'react-redux';
 import { useEffect } from "react";
-import { getProjects } from "../../store/projects";
-import { getCategories } from "../../store/categories";
+import { useParams } from "react-router-dom";
+import { getProjectDetails } from "../../store/projects";
 import './ProjectPage.css';
 import NavigationBar from '../NavigationBar';
 
 function ProjectPage() {
     const dispatch = useDispatch();
-    useEffect(() => dispatch(getProjects()), [dispatch]);
-    useEffect(() => dispatch(getCategories()), [dispatch]);
+    const { projectId } = useParams();
 
-    const projects = useSelector((state) => state.projects);
-    const categories = useSelector((state) => state.categories);
+    useEffect(() => {
+        dispatch(getProjectDetails(projectId))
+    }, [projectId, dispatch]);
 
-    const projectArray = Object.values(projects);
-    const categoryArray = Object.values(categories);
+    const project = useSelector((state) => state.projects[projectId]);
+    console.log(project)
 
-  return (
+
+    // const CPPFormat = code => {
+
+    // }
+
+    return (
     <>
-      <NavigationBar />
-      <div>Project Page</div>
+        <NavigationBar />
+        <div>{project.name}</div>
+        <div>{project.code}</div>
     </>
-  );
+    );
 }
 
 export default ProjectPage;

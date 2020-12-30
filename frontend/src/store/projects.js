@@ -2,6 +2,7 @@ import { fetch } from './csrf';
 
 const LOAD = 'project/load';
 
+
 const load = projects => ({
     type: LOAD,
     projects,
@@ -13,12 +14,10 @@ export const getProjects = () => async dispatch => {
   };
 
 export const getProjectDetails = (id) => async (dispatch) => {
-  const response = await fetch(`/api/projects/${id}`);
-
-  if (response.ok) {
-    const projectObj = await response.json();
-    dispatch(load(projectObj));
-  }
+  console.log('ID:', id)
+  const res = await fetch(`/api/projects/${id}`);
+  console.log('PROJECT DATA:',res.data.project)
+  dispatch(load(res.data.project));
 };
 
 const initialState = {};
@@ -27,6 +26,7 @@ const projectReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD:{
         const allProjects = {};
+        // console.log(action.projects)
         action.projects.forEach(project => {
             allProjects[project.id] = project;
         });
