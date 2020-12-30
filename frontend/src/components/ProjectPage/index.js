@@ -13,9 +13,12 @@ function ProjectPage() {
         dispatch(getProjectDetails(projectId))
     }, [projectId, dispatch]);
 
-    const project = useSelector((state) => state.projects[projectId]);
+    const project = useSelector((state) => state.projects);
     console.log(project)
 
+    if (!project) {
+        return null;
+    }
 
     // const CPPFormat = code => {
 
@@ -25,7 +28,7 @@ function ProjectPage() {
     <>
         <NavigationBar />
         <div>{project.name}</div>
-        <div>{project.code}</div>
+        <pre>{project.code}</pre>
     </>
     );
 }

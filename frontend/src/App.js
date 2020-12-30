@@ -28,6 +28,9 @@ function App() {
         <Route path="/projects/:projectId">
           <ProjectPage />
         </Route>
+        <Route path="/categories/:categoryId">
+          <ProjectPage />
+        </Route>
       </Switch>
     )}
   </>

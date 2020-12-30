@@ -9,17 +9,39 @@
     font-family: "myriad-pro-condensed",Helvetica,Arial,sans-serif;
     text-transform: uppercase;
     font-weight: 700;
+    font-size: 21.5px;
+    text-align: center;
 }
 
 .midSectionBlocks {
-    text-align: center;
+    font-size: 18px;
+    line-height: 1.45;
+    font-family: "myriad-pro",Helvetica,Arial,sans-serif;
+    width: 284px;
+}
+
+.midSectionBlocks p {
+    color: #555;
     font-size: 18px;
     line-height: 1.45;
     font-family: "myriad-pro",Helvetica,Arial,sans-serif;
 }
 
-.midSectionBlocks p {
-    color: #555;
+.carousel {
+    position:relative
+}
+
+.textOverPicture {
+    position: fixed;
+}
+
+#pictureText {
+    text-transform: uppercase;
+    font-family: "myriad-pro-condensed",Helvetica,Arial,sans-serif;
+    margin-bottom: 15px;
+}
+
+#pictureSmallText {
     font-size: 18px;
     line-height: 1.45;
     font-family: "myriad-pro",Helvetica,Arial,sans-serif;
