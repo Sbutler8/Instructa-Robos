@@ -24,8 +24,8 @@ function UserHomePage() {
         <div className="projects">
             {projectArray.map(project => {
                 return (
-                    <div className="project">
-                        <img id="robotPic" src={project.robotPicURL}></img>
+                    <div key={project.id} className="project">
+                        <img id="robotPic" src={project.robotPicURL} alt=''></img>
                         <Link to={`/projects/${project.id}`} >
                             <div >{project.name}</div>
                         </Link>
