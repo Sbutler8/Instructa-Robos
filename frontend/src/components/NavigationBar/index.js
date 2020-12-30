@@ -16,28 +16,22 @@ function NavigationBar() {
   return (
     <>
       <div className="navBar">
-        {categoryArray.map(category => {
-          return (
-              <div className="category">
-                  <Link to={`/projects/${category.name}`} >
-                      <div>{category.name}</div>
-                  </Link>
-              </div>
-              )
-          })}
-          <ul className="topNav">
-            <li>Basics</li>
-            <li>Digital</li>
-            <li>Analog</li>
-            <li>Communication</li>
-            <li>Control</li>
-            <li>Sensors</li>
-            <li>Display</li>
-            <li>Strings</li>
-            <li>USB</li>
-          </ul>
+        <div className="topNav">
+          {categoryArray.map(category => {
+            return (
+                <div className="category">
+                    <Link to={`/projects/${category.name}`} >
+                        <div id="category">{category.name}</div>
+                    </Link>
+                </div>
+                )
+            })}
+        </div>
+        <div className="bottomNav">
           <img id="logo" src="../../images/instructa-robos-logo.png" alt=''/>
-          <span>instructarobos</span>
+          <span id="text" >instructarobos</span>
+          <button id="projectButton">Projects</button>
+        </div>
       </div>
     </>
   );

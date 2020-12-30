@@ -12,6 +12,15 @@ export const getProjects = () => async dispatch => {
     dispatch(load(res.data.projects));
   };
 
+export const getProjectDetails = (id) => async (dispatch) => {
+  const response = await fetch(`/api/projects/${id}`);
+
+  if (response.ok) {
+    const projectObj = await response.json();
+    dispatch(load(projectObj));
+  }
+};
+
 const initialState = {};
 
 const projectReducer = (state = initialState, action) => {
