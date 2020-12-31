@@ -2,6 +2,7 @@ import { fetch } from './csrf';
 
 const LOAD = 'project/load';
 const LOAD_ONE = 'project/loadOne';
+const LOAD_SELECTED = 'project/loadSelected';
 const ADD_FEATURE = 'project/addFeature';
 
 const load = projects => ({
@@ -14,10 +15,21 @@ const loadOne = project => ({
   project,
 });
 
+const loadSelected = item => ({
+  type: LOAD_SELECTED,
+  item,
+});
+
 const addFeature = feature => ({
   type: ADD_FEATURE,
   feature,
 });
+
+export const getCategory = (id) => async (dispatch) => {
+  const res = await fetch(`/api/projects/${id}`);
+  console.log('NAME----------->',res.data.category.name)
+  dispatch(loadSelected(res.data.category.name));
+};
 
 export const getProjects = () => async dispatch => {
     const res = await fetch(`/api/projects`);
@@ -61,4 +73,13 @@ const projectReducer = (state = initialState, action) => {
   }
 };
 
+export const currentCategoryReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case LOAD_SELECTED:{
+      return action.item;
+      }
+    default:
+      return state;
+  }
+};
 export default projectReducer;
