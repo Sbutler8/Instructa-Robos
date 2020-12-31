@@ -2,12 +2,13 @@ import React, { useSelector, useDispatch} from 'react-redux';
 import { useEffect } from "react";
 import { getCategories } from "../../store/categories";
 import { getCategory } from "../../store/projects";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import './NavigationBar.css';
 
 function NavigationBar() {
     const dispatch = useDispatch();
     const { projectId } = useParams();
+    const history = useHistory();
     useEffect(() => dispatch(getCategories()), [dispatch]);
     useEffect(() => dispatch(getCategory(projectId)), [dispatch]);
 
@@ -40,7 +41,7 @@ function NavigationBar() {
         <div className="bottomNav">
           <img id="logo" src="../../images/instructa-robos-logo.png" alt=''/>
           <span id="text" >instructarobos</span>
-          <button id="projectButton">Projects</button>
+          <button id="projectButton" onClick={() => history.push("/")}>Projects</button>
         </div>
       </div>
     </>
