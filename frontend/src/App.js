@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import UserHomePage from "./components/UserHomePage";
 import ProjectPage from "./components/ProjectPage";
+import CategoriesPage from "./components/CategoriesPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function App() {
           <ProjectPage />
         </Route>
         <Route path="/categories/:categoryId">
-          <ProjectPage />
+          <CategoriesPage />
         </Route>
       </Switch>
     )}

@@ -2,6 +2,7 @@ import { fetch } from './csrf';
 
 const LOAD = 'project/load';
 const LOAD_ONE = 'project/loadOne';
+const ADD_FEATURE = 'project/addFeature';
 
 const load = projects => ({
     type: LOAD,
@@ -13,16 +14,32 @@ const loadOne = project => ({
   project,
 });
 
+const addFeature = feature => ({
+  type: ADD_FEATURE,
+  feature,
+});
+
 export const getProjects = () => async dispatch => {
     const res = await fetch(`/api/projects`);
     dispatch(load(res.data.projects));
-  };
+};
 
 export const getProjectDetails = (id) => async (dispatch) => {
-  console.log('ID:', id)
   const res = await fetch(`/api/projects/${id}`);
-  console.log('PROJECT DATA:',res.data.project);
   dispatch(loadOne(res.data.project));
+};
+
+export const addFunctionality = (formObj) => async (dispatch) => {
+  const res = await fetch(`/api/projects`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formObj),
+  });
+
+  dispatch(addFeature(res.data));
+  return res
 };
 
 const initialState = {};

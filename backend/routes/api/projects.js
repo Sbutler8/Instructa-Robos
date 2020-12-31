@@ -9,9 +9,14 @@ router.get('/', asyncHandler(async function(_req, res) {
   }));
 
 
-router.get('/:id', asyncHandler(async function(req, res) {
-  const project = await Project.findByPk(Number(req.params.id));
-  res.json({ project });
+  router.get('/:id', asyncHandler(async function(req, res) {
+    const project = await Project.findByPk(Number(req.params.id));
+    const addedFunctions = await AddedFunctionality.findAll({
+      where: {
+        projectId: req.params.id,
+      }
+    })
+    res.json({ project, addedFunctions });
 }));
 
 router.post('/', asyncHandler(async function (req, res) {
