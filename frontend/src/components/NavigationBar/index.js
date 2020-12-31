@@ -2,7 +2,9 @@ import React, { useSelector, useDispatch} from 'react-redux';
 import { useEffect } from "react";
 import { getCategories } from "../../store/categories";
 import { getCategory } from "../../store/projects";
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, NavLink, useParams, useHistory } from 'react-router-dom';
+import ProfileButton from '../Navigation/ProfileButton';
+
 import './NavigationBar.css';
 
 function NavigationBar() {
@@ -10,10 +12,12 @@ function NavigationBar() {
     const { projectId } = useParams();
     const history = useHistory();
     useEffect(() => dispatch(getCategories()), [dispatch]);
-    useEffect(() => dispatch(getCategory(projectId)), [dispatch]);
+    // useEffect(() => dispatch(getCategory(projectId)), [dispatch]);
 
     const category = useSelector((state) => state.currentCategory);
     const categories = useSelector((state) => state.categories);
+    const sessionUser = useSelector(state => state.session.user);
+
     const categoryArray = Object.values(categories);
 
     // if (typeof(projectId) === "number") {
@@ -28,6 +32,11 @@ function NavigationBar() {
     <>
       <div className="navBar">
         <div className="topNav">
+        {sessionUser && (
+          <NavLink exact to="/">
+            <i class="fas fa-home"></i>
+          </NavLink>
+          )}
           {categoryArray.map(category => {
             return (
                 <div key={category.id} className="category">
@@ -37,6 +46,9 @@ function NavigationBar() {
                 </div>
                 )
             })}
+            {sessionUser && (
+              <ProfileButton user={sessionUser} />
+            )}
         </div>
         <div className="bottomNav">
           <img id="logo" src="../../images/instructa-robos-logo.png" alt=''/>

@@ -29,7 +29,7 @@ function App() {
         <Route path="/projects/:projectId">
           <ProjectPage />
         </Route>
-        <Route path="/categories/:categoryId">
+        <Route path="/categories/:categoryName">
           <CategoriesPage />
         </Route>
       </Switch>

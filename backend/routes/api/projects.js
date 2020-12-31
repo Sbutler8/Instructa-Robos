@@ -17,7 +17,7 @@ router.get('/', asyncHandler(async function(_req, res) {
         where: { projectId: req.params.id }
       },
     });
-    console.log('CATEGORY------------->', category)
+    // console.log('CATEGORY------------->', category)
     const addedFunctions = await AddedFunctionality.findAll({
       where: {
         projectId: req.params.id,

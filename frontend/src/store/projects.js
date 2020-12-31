@@ -27,7 +27,6 @@ const addFeature = feature => ({
 
 export const getCategory = (id) => async (dispatch) => {
   const res = await fetch(`/api/projects/${id}`);
-  console.log('NAME----------->',res.data.category.name)
   dispatch(loadSelected(res.data.category.name));
 };
 
@@ -39,6 +38,13 @@ export const getProjects = () => async dispatch => {
 export const getProjectDetails = (id) => async (dispatch) => {
   const res = await fetch(`/api/projects/${id}`);
   dispatch(loadOne(res.data.project));
+};
+
+export const getProjectsByCategory = (categoryName) => async (dispatch) => {
+  const res = await fetch(`/api/categories/${categoryName}`);
+  // console.log('STORE CATEGORY NAME-------->', categoryName)
+  console.log('DATA--------------->',res.data.projects)
+  dispatch(load(res.data.projects));
 };
 
 export const addFunctionality = (formObj) => async (dispatch) => {
