@@ -2,7 +2,8 @@
     display:flex;
     flex-direction:row;
     flex-wrap: wrap;
-    margin-left: 18px
+    margin-left: 18px;
+    margin-top:125px;
 }
 
 .project {

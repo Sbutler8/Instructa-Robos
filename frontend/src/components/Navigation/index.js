@@ -30,10 +30,8 @@ function Navigation({ isLoaded }){
 
   return (
     <>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
+      <NavLink exact to="/">Home</NavLink>
+      {isLoaded && sessionLinks}
     </>
   );
 }

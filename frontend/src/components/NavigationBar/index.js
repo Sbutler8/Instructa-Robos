@@ -33,7 +33,7 @@ function NavigationBar() {
       <div className="navBar">
         <div className="topNav">
         {sessionUser && (
-          <NavLink exact to="/">
+          <NavLink id="homeButton" exact to="/">
             <i class="fas fa-home"></i>
           </NavLink>
           )}

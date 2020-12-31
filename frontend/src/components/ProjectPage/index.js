@@ -13,7 +13,7 @@ function ProjectPage() {
 
     const dispatch = useDispatch();
     const { projectId } = useParams();
-    
+
     useEffect(() => {
         dispatch(getFeatures(projectId))
     }, [projectId, dispatch]);
@@ -40,7 +40,7 @@ function ProjectPage() {
     return (
     <>
         <NavigationBar />
-        <div>{project.name}</div>
+        <div className="beginningProject">{project.name}</div>
         <pre>{project.code}</pre>
         <div>Intructions</div>
         <button onClick={() => {

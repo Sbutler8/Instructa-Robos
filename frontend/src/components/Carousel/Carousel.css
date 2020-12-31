@@ -29,7 +29,8 @@
 }
 
 .carousel {
-    position:relative
+    /* position: absolute;; */
+    margin-top: 130px;
 }
 
 .textOverPicture {
