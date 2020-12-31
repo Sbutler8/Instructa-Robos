@@ -1,15 +1,27 @@
 import React, { useSelector, useDispatch} from 'react-redux';
 import { useEffect } from "react";
 import { getCategories } from "../../store/categories";
-import { Link } from 'react-router-dom';
+import { getCategory } from "../../store/projects";
+import { Link, useParams } from 'react-router-dom';
 import './NavigationBar.css';
 
 function NavigationBar() {
     const dispatch = useDispatch();
+    const { projectId } = useParams();
     useEffect(() => dispatch(getCategories()), [dispatch]);
+    useEffect(() => dispatch(getCategory(projectId)), [dispatch]);
 
+    const category = useSelector((state) => state.currentCategory);
     const categories = useSelector((state) => state.categories);
     const categoryArray = Object.values(categories);
+
+    // if (typeof(projectId) === "number") {
+    //   return (
+    //     <div>{category}</div>
+    //   )
+    // } else {
+
+    // }
 
   return (
     <>
@@ -18,7 +30,7 @@ function NavigationBar() {
           {categoryArray.map(category => {
             return (
                 <div key={category.id} className="category">
-                    <Link to={`/projects/${category.name}`} >
+                    <Link to={`/categories/${category.name}`} >
                         <div id="category">{category.name}</div>
                     </Link>
                 </div>

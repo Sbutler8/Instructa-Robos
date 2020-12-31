@@ -13,7 +13,6 @@ function LoginForm() {
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password })).catch(
       (res) => {
-        console.log('DATA:',res.data)
         if (res.data && res.data.errors) setErrors(res.data.errors);
       }
     );
@@ -38,7 +37,6 @@ function LoginForm() {
       </div>
       <img src="../../images/instructa-robos-logo.png" alt='' />
       <ul>
-        {console.log('ERRORS:',errors)}
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
