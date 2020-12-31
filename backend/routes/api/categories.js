@@ -10,18 +10,18 @@ router.get('/', asyncHandler(async function(_req, res) {
 
 router.get('/:categoryName', asyncHandler(async function(req, res) {
   console.log('PARAMS---------------->',req.params.categoryName)
-  const projects = await Project.findAll({
-    // through: {
-    //   model: [CategoriesandProject,],
-    //   include: {
-    //     model: Category,
-    //     where: { name: req.params.categoryName }
-    //   },
-    // },
-  });
+  const selectedProjects = await Project.findAll({
+    include: {
+    model: Category,
+    where: { name: req.params.categoryName }
+    },
+    }
+  )
+  selectedProjects.map(project => {
+    console.log(project.name)
+  })
 
-  console.log(res.json({ projects }));
-  res.json({ projects });
+  res.json({ selectedProjects });
 }));
 
 module.exports = router;

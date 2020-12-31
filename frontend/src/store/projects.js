@@ -43,8 +43,8 @@ export const getProjectDetails = (id) => async (dispatch) => {
 export const getProjectsByCategory = (categoryName) => async (dispatch) => {
   const res = await fetch(`/api/categories/${categoryName}`);
   // console.log('STORE CATEGORY NAME-------->', categoryName)
-  console.log('DATA--------------->',res.data.projects)
-  dispatch(load(res.data.projects));
+  console.log('DATA--------------->',res.data.selectedProjects)
+  dispatch(load(res.data.selectedProjects));
 };
 
 export const addFunctionality = (formObj) => async (dispatch) => {

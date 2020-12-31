@@ -48,7 +48,7 @@ function ProjectPage() {
             }}>Add Functionality</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-            <AddFunctionalityForm onClose={() => setShowModal(false)}/>
+            <AddFunctionalityForm setShowModal={setShowModal}/>
             </Modal>
         )}
         <div className="Features">

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { addFunctionality } from '../../store/projects'
 import './AddedFunctionalityForm.css';
 
-function AddFunctionalityForm({onClose}) {
+function AddFunctionalityForm({setShowModal}) {
 
   const dispatch = useDispatch();
   const { projectId } = useParams();
@@ -15,6 +15,8 @@ function AddFunctionalityForm({onClose}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addFunctionality({ name,code,vidPic, projectId}))
+
+    setShowModal(false)
     };
 
   return (
@@ -45,7 +47,7 @@ function AddFunctionalityForm({onClose}) {
         required
       />
       <button>Upload Picture/Video</button>
-      <button type="submit" onClick={onClose}>Add Your Piece</button>
+      <button type="submit">Add Your Piece</button>
     </form>
   );
 }

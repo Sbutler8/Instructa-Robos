@@ -34,7 +34,7 @@ function NavigationBar() {
         <div className="topNav">
         {sessionUser && (
           <NavLink id="homeButton" exact to="/">
-            <i class="fas fa-home"></i>
+            <i className="fas fa-home"></i>
           </NavLink>
           )}
           {categoryArray.map(category => {
