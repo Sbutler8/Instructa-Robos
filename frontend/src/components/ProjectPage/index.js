@@ -13,7 +13,7 @@ function ProjectPage() {
 
     const dispatch = useDispatch();
     const { projectId } = useParams();
-    
+
     useEffect(() => {
         dispatch(getFeatures(projectId))
     }, [projectId, dispatch]);
@@ -40,15 +40,15 @@ function ProjectPage() {
     return (
     <>
         <NavigationBar />
-        <div>{project.name}</div>
+        <div className="beginningProject">{project.name}</div>
         <pre>{project.code}</pre>
-        <div>Intructions</div>
+        <div>Instructions</div>
         <button onClick={() => {
             setShowModal(true)
             }}>Add Functionality</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-            <AddFunctionalityForm onClose={() => setShowModal(false)}/>
+            <AddFunctionalityForm setShowModal={setShowModal}/>
             </Modal>
         )}
         <div className="Features">
@@ -57,6 +57,7 @@ function ProjectPage() {
                     <div key={feature.id} className="feature">
                     <div >{feature.name}</div>
                     <div className="description">{feature.code}</div>
+                    <img src={feature.vidPic}></img>
             </div>
                )
             })}

@@ -27,7 +27,6 @@ const addFeature = feature => ({
 
 export const getCategory = (id) => async (dispatch) => {
   const res = await fetch(`/api/projects/${id}`);
-  console.log('NAME----------->',res.data.category.name)
   dispatch(loadSelected(res.data.category.name));
 };
 
@@ -41,13 +40,25 @@ export const getProjectDetails = (id) => async (dispatch) => {
   dispatch(loadOne(res.data.project));
 };
 
+export const getProjectsByCategory = (categoryName) => async (dispatch) => {
+  const res = await fetch(`/api/categories/${categoryName}`);
+  // console.log('STORE CATEGORY NAME-------->', categoryName)
+  console.log('DATA--------------->',res.data.selectedProjects)
+  dispatch(load(res.data.selectedProjects));
+};
+
 export const addFunctionality = (formObj) => async (dispatch) => {
+  console.log('FORM OBJ------------->',formObj)
+  const { name,code,vidPic, projectId} = formObj;
+  const formData = new FormData();
+  if (vidPic) formData.append("image", vidPic);
+  formData.append("name", name);
+  formData.append("code", code);
+  formData.append("projectId", projectId);
+
   const res = await fetch(`/api/projects`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formObj),
+    body: formData,
   });
 
   dispatch(addFeature(res.data));

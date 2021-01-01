@@ -9,7 +9,6 @@ function LoginFormModal() {
     <>
       <button onClick={() => {
         setShowModal(true)
-        console.log("click")
         }}>Log In</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

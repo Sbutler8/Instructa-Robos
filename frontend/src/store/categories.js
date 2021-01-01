@@ -18,11 +18,11 @@ export const getCategories = () => async dispatch => {
     dispatch(load(res.data.categories));
   };
 
-export const getProjectsByCategory = (categoryName) => async (dispatch) => {
-  console.log('ID:', categoryName)
-  const res = await fetch(`/api/categories/${categoryName}`);
-  dispatch(loadProjects(res.data.projects));
-};
+// export const getProjectsByCategory = (categoryName) => async (dispatch) => {
+//   const res = await fetch(`/api/categories/${categoryName}`);
+//   // console.log('STORE CATEGORY NAME-------->', categoryName)
+//   dispatch(loadProjects(res.data.projects));
+// };
 
 const initialState = {};
 

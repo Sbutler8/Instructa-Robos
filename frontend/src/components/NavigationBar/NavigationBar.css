@@ -1,15 +1,20 @@
+
+i {
+    color: #ccc;
+}
+
 .navBar {
+    position:fixed;
     display:flex;
     flex-direction: column;
-
+    width:100%;
 }
 
 .topNav {
     display:inline-grid;
-    grid-template-columns: repeat(10, 10%);
+    grid-template-columns: repeat(11, 9%);
     background-color: rgb(85,85,85);
-    height:28px;
-    padding-top:12px;
+    height:35px;
 }
 
 .bottomNav {
@@ -26,6 +31,11 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     letter-spacing: 0.6px;
     font-size: 12px;
+    padding-top:12px;
+}
+
+a {
+    text-decoration: none;
 }
 
 #logo {
@@ -53,12 +63,15 @@
     display: inline-block;
     font-size: 14px;
     font-weight: 400;
-    /* margin-bottom: 0; */
     padding: 6px 12px;
     text-align: center;
     vertical-align: middle;
     white-space: nowrap;
     text-shadow: none;
+}
+
+#homeButton {
+    margin-top:10px;
 }
 
 link {
