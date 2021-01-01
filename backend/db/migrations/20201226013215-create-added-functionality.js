@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false,
       },
       vidPic: {
-        type: Sequelize.BLOB,
+        type: Sequelize.STRING(1000),
         allowNull:true
       },
       projectId: {

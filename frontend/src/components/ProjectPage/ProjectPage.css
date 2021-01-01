@@ -1,3 +1,8 @@
 .beginningProject {
     margin-top:135px;
 }
+
+#modal-content {
+    height: 880px;
+    width:800px;
+}
