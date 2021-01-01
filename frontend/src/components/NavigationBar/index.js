@@ -10,23 +10,16 @@ import './NavigationBar.css';
 function NavigationBar() {
     const dispatch = useDispatch();
     const { projectId } = useParams();
+    console.log('URL:', projectId)
     const history = useHistory();
     useEffect(() => dispatch(getCategories()), [dispatch]);
-    // useEffect(() => dispatch(getCategory(projectId)), [dispatch]);
+    useEffect(() => dispatch(getCategory(projectId)), [projectId, dispatch]);
 
     const category = useSelector((state) => state.currentCategory);
     const categories = useSelector((state) => state.categories);
     const sessionUser = useSelector(state => state.session.user);
 
     const categoryArray = Object.values(categories);
-
-    // if (typeof(projectId) === "number") {
-    //   return (
-    //     <div>{category}</div>
-    //   )
-    // } else {
-
-    // }
 
   return (
     <>
@@ -53,6 +46,9 @@ function NavigationBar() {
         <div className="bottomNav">
           <img id="logo" src="../../images/instructa-robos-logo.png" alt=''/>
           <span id="text" >instructarobos</span>
+          {/* {category && (
+            <span>{category}</span>
+          )} */}
           <button id="projectButton" onClick={() => history.push("/")}>Projects</button>
         </div>
       </div>

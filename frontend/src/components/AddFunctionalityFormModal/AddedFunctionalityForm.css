@@ -1,0 +1,24 @@
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.imgPreview {
+    width: 150px;
+    height:auto;
+}
+
+#code {
+    width: 600px;
+    height: 500px;
+}
+
+#name {
+    float: left;
+}

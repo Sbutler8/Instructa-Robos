@@ -42,7 +42,7 @@ function ProjectPage() {
         <NavigationBar />
         <div className="beginningProject">{project.name}</div>
         <pre>{project.code}</pre>
-        <div>Intructions</div>
+        <div>Instructions</div>
         <button onClick={() => {
             setShowModal(true)
             }}>Add Functionality</button>
@@ -57,6 +57,7 @@ function ProjectPage() {
                     <div key={feature.id} className="feature">
                     <div >{feature.name}</div>
                     <div className="description">{feature.code}</div>
+                    <img src={feature.vidPic}></img>
             </div>
                )
             })}

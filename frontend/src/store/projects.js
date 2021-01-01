@@ -48,12 +48,17 @@ export const getProjectsByCategory = (categoryName) => async (dispatch) => {
 };
 
 export const addFunctionality = (formObj) => async (dispatch) => {
+  console.log('FORM OBJ------------->',formObj)
+  const { name,code,vidPic, projectId} = formObj;
+  const formData = new FormData();
+  if (vidPic) formData.append("image", vidPic);
+  formData.append("name", name);
+  formData.append("code", code);
+  formData.append("projectId", projectId);
+
   const res = await fetch(`/api/projects`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formObj),
+    body: formData,
   });
 
   dispatch(addFeature(res.data));
