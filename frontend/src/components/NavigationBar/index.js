@@ -10,7 +10,6 @@ import './NavigationBar.css';
 function NavigationBar() {
     const dispatch = useDispatch();
     const { projectId } = useParams();
-    console.log('URL:', projectId)
     const history = useHistory();
     useEffect(() => dispatch(getCategories()), [dispatch]);
     useEffect(() => dispatch(getCategory(projectId)), [projectId, dispatch]);

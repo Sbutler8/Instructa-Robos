@@ -9,7 +9,6 @@ router.get('/', asyncHandler(async function(_req, res) {
   }));
 
 router.get('/:categoryName', asyncHandler(async function(req, res) {
-  console.log('PARAMS---------------->',req.params.categoryName)
   const selectedProjects = await Project.findAll({
     include: {
     model: Category,
@@ -17,10 +16,6 @@ router.get('/:categoryName', asyncHandler(async function(req, res) {
     },
     }
   )
-  selectedProjects.map(project => {
-    console.log(project.name)
-  })
-
   res.json({ selectedProjects });
 }));
 
