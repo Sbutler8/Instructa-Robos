@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
     code: DataTypes.TEXT,
+    instructions:DataTypes.TEXT,
     robotPicURL: DataTypes.STRING,
     userId: DataTypes.INTEGER,
   }, {});

@@ -21,6 +21,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
+      instructions: {
+        type: Sequelize.TEXT,
+        allowNull: true,
+      },
       robotPicURL: {
         type: Sequelize.STRING(1000),
         allowNull: false,
