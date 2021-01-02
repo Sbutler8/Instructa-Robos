@@ -1,0 +1,19 @@
+.login {
+    color: #333;
+    top: -2px;
+    margin: 0 15px;
+    background-color: #fff;
+    border-color: #ccc;
+    background-image: none;
+    border: 1px solid rgb(182, 180, 180);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-shadow: none;
+}

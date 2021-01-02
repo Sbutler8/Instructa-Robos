@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .midSection {
     display:flex;
     flex-direction:row;
@@ -26,11 +30,6 @@
     font-size: 18px;
     line-height: 1.45;
     font-family: "myriad-pro",Helvetica,Arial,sans-serif;
-}
-
-.carousel {
-    /* position: absolute;; */
-    margin-top: 130px;
 }
 
 .textOverPicture {

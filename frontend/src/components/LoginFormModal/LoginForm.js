@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import './LoginFormModal.css';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -55,7 +56,7 @@ function LoginForm() {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
-      <button type="submit">Log In</button>
+      <button className="login" type="submit">Log In</button>
       <script>
         {document.querySelector('body').addEventListener('mousemove', moveEyes)}
       </script>

@@ -2,6 +2,10 @@ input[type="file"] {
     display: none;
 }
 
+label, input {
+    float: left;
+}
+
 .custom-file-upload {
     border: 1px solid #ccc;
     display: inline-block;
@@ -15,8 +19,8 @@ input[type="file"] {
 }
 
 #code {
-    width: 600px;
-    height: 500px;
+    width: 250%;
+    height: 300px;
 }
 
 #name {

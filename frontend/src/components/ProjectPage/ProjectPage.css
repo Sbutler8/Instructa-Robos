@@ -1,8 +1,62 @@
-.beginningProject {
-    margin-top:135px;
+.projectName, .instructions {
+    margin-top:5px;
+    color: #333;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 34px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-#modal-content {
-    height: 880px;
-    width:800px;
+/* #modal-content {
+    height: 80%;
+    width:80%;
+    max-height: 880px;
+    max-width:550px;
+} */
+
+.code {
+    position: relative;
+    white-space: pre-wrap;
+    border: 4mm solid rgba(0, 147, 162, 0.651);
+    margin: auto;
+    width: 50%;
+    min-width: 625px;
+    outline: 1mm solid rgba(1, 77, 85, 0.651);
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+.uploadedImg {
+    height: 200px;
+    width: auto;
+}
+
+.projectAuthor {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #999;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+#addFunctionalityButton {
+    position: absolute;
+    top:10px;
+    right:10px;
+    color: #333;
+    padding-right: 100px;
+    background-color: #fff;
+    border-color: #ccc;
+    background-image: none;
+    border: 1px solid rgb(182, 180, 180);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-shadow: none;
 }
