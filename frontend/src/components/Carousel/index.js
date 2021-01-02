@@ -19,10 +19,10 @@ function Carousel() {
         <>
             <Slider {...settings} className="carousel">
                 <div>
-                    <img src="../../images/carousel1.jpg" alt=''></img>
+                    <img src="https://content.instructables.com/ORIG/FO9/LX23/JK10S8O5/FO9LX23JK10S8O5.jpg?auto=webp&frame=1&width=1024&height=1024&fit=bounds&md=9c9257ab64de620c334ec03f2a25b929" alt=''></img>
                 </div>
                 <div>
-                    <img src="../../images/carousel2.jpg" alt=''></img>
+                    <img src="https://content.instructables.com/ORIG/FJA/HU79/KJBFHTLK/FJAHU79KJBFHTLK.jpg?auto=webp&frame=1&width=1024&height=1024&fit=bounds&md=7d919b26c85995fc6317a489e9af4b9f" alt=''></img>
                 </div>
                 <div>
                     <img src="../../images/carousel3.jpg" alt=''></img>
@@ -36,12 +36,12 @@ function Carousel() {
                 <div>
                     <img src="../../images/carousel6.jpg" alt=''></img>
                 </div>
-
             </Slider>
-                <div className="textOverPicture">
-                    <div id="pictureText">YOURS FOR THE MAKING</div>
-                    <p id="pictureSmallText">Instructarobos is a community for people who like to make things. Come explre, share, and make your next project with us!</p>
-                </div>
+
+            <div className="textOverPicture">
+                <div id="pictureText">YOURS FOR THE MAKING</div>
+                <p id="pictureSmallText">Instructarobos is a community for people who like to make things. Come explre, share, and make your next project with us!</p>
+            </div>
 
 
             <div className="midSection">

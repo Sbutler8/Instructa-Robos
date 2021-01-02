@@ -18,12 +18,6 @@ export const getCategories = () => async dispatch => {
     dispatch(load(res.data.categories));
   };
 
-// export const getProjectsByCategory = (categoryName) => async (dispatch) => {
-//   const res = await fetch(`/api/categories/${categoryName}`);
-//   // console.log('STORE CATEGORY NAME-------->', categoryName)
-//   dispatch(loadProjects(res.data.projects));
-// };
-
 const initialState = {};
 
 const categoryReducer = (state = initialState, action) => {

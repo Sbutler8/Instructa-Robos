@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { addFunctionality } from '../../store/projects'
+import { getFeatures } from "../../store/functionalities";
 import './AddedFunctionalityForm.css';
 
-function AddFunctionalityForm({setShowModal}) {
+function AddFunctionalityForm({setShowModal, setNewFeature}) {
 
   const dispatch = useDispatch();
   const { projectId } = useParams();
@@ -13,13 +14,14 @@ function AddFunctionalityForm({setShowModal}) {
   const [vidPic, setVidPic] = useState(null);
   const [imgPreview, setImagePreview] = useState(null);
 
-
   const handleSubmit = (e) => {
       e.preventDefault();
       dispatch(addFunctionality({ name,code,vidPic, projectId}))
+      //   dispatch(getFeatures(projectId))
 
       setShowModal(false);
       setVidPic(null);
+    //   setNewFeature(true);
     };
 
     const updateFile = (e) => {
@@ -40,7 +42,7 @@ function AddFunctionalityForm({setShowModal}) {
             <div className="eye" id="lefteye"></div>
             <div className="eye"id="righteye"></div>
         </div>
-        <img src="../../images/instructa-robos-logo.png" alt='' />
+        <img className="robotImg" src="../../images/instructa-robos-logo.png" alt='' />
         {/* <ul>
             {console.log('ERRORS:',errors)}
             {errors.map((error, idx) => (
@@ -62,11 +64,11 @@ function AddFunctionalityForm({setShowModal}) {
             onChange={(e) => setCode(e.target.value)}
             required
         />
-        <img className="imgPreview" src={imgPreview}></img>
+        <img className="imgPreview" src={imgPreview} alt=''></img>
         <label  className="custom-file-upload">Upload Photo
             <input type="file" onChange={updateFile} />
         </label>
-        <button type="submit" onClick={()=> window.location.reload()}>Add Your Piece</button>
+        <button type="submit">Add Your Piece</button>
     </form>
   );
 }

@@ -42,13 +42,10 @@ export const getProjectDetails = (id) => async (dispatch) => {
 
 export const getProjectsByCategory = (categoryName) => async (dispatch) => {
   const res = await fetch(`/api/categories/${categoryName}`);
-  // console.log('STORE CATEGORY NAME-------->', categoryName)
-  console.log('DATA--------------->',res.data.selectedProjects)
   dispatch(load(res.data.selectedProjects));
 };
 
 export const addFunctionality = (formObj) => async (dispatch) => {
-  console.log('FORM OBJ------------->',formObj)
   const { name,code,vidPic, projectId} = formObj;
   const formData = new FormData();
   if (vidPic) formData.append("image", vidPic);

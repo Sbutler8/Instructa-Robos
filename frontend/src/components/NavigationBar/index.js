@@ -8,18 +8,35 @@ import ProfileButton from '../Navigation/ProfileButton';
 import './NavigationBar.css';
 
 function NavigationBar() {
-    const dispatch = useDispatch();
-    const { projectId } = useParams();
-    console.log('URL:', projectId)
-    const history = useHistory();
-    useEffect(() => dispatch(getCategories()), [dispatch]);
-    useEffect(() => dispatch(getCategory(projectId)), [projectId, dispatch]);
+  const dispatch = useDispatch();
+  const { projectId } = useParams();
+  const history = useHistory();
+  useEffect(() => dispatch(getCategories()), [dispatch]);
 
-    const category = useSelector((state) => state.currentCategory);
-    const categories = useSelector((state) => state.categories);
-    const sessionUser = useSelector(state => state.session.user);
+  const category = useSelector((state) => state.currentCategory);
+  const categories = useSelector((state) => state.categories);
+  const sessionUser = useSelector(state => state.session.user);
 
-    const categoryArray = Object.values(categories);
+  useEffect(() => {
+    if (sessionUser && projectId) {
+      dispatch(getCategory(projectId))
+    }
+  }, [projectId, dispatch])
+
+  const categoryArray = Object.values(categories);
+
+  const linksToSpecificPointOnPage = () => {
+    const categoryLinks = document.querySelectorAll("Link");
+    console.log('CATEGORY LINKS:', categoryLinks)
+    const projectButton = document.querySelector("#projectButton");
+
+    categoryLinks.forEach(category => {
+      category.addEventListener("click", (event) => {
+        console.log('EVENT', event.target)
+        category.setAttribute("href", event.target)
+      })
+    })
+  }
 
   return (
     <>
@@ -33,7 +50,7 @@ function NavigationBar() {
           {categoryArray.map(category => {
             return (
                 <div key={category.id} className="category">
-                    <Link to={`/categories/${category.name}`} >
+                    <Link to={`/categories/${category.name}`}>
                         <div id="category">{category.name}</div>
                     </Link>
                 </div>
@@ -52,6 +69,9 @@ function NavigationBar() {
           <button id="projectButton" onClick={() => history.push("/")}>Projects</button>
         </div>
       </div>
+      <script>
+        { !sessionUser && (linksToSpecificPointOnPage()) }
+      </script>
     </>
   );
 }

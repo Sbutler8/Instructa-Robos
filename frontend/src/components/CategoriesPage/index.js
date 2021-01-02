@@ -20,8 +20,6 @@ function CategoriesPage() {
 
     const projectArray = Object.values(projects);
 
-    console.log('ARRAY-------->',projectArray)
-
     if (!user) {
         return <Redirect to="/"/>;
     }
