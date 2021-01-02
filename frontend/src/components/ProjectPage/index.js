@@ -5,7 +5,6 @@ import { getProjectDetails  } from "../../store/projects";
 import { getCategory } from "../../store/projects";
 import { getFeatures } from "../../store/functionalities";
 import './ProjectPage.css';
-import NavigationBar from '../NavigationBar';
 import { Modal } from '../../context/Modal';
 import AddFunctionalityForm from '../AddFunctionalityFormModal/AddFunctionalityForm';
 
@@ -49,7 +48,6 @@ function ProjectPage() {
 
     return (
     <>
-        <NavigationBar />
         <div className="projectName">{project.name}</div>
         <div className="projectAuthor" >By {user.username}</div>
 
@@ -64,7 +62,12 @@ function ProjectPage() {
                 </Modal>
             )}
         </pre>
-        <div className="instructions" >Instructions</div>
+        { project.instructions &&
+            <>
+                <div className="instructions" >Instructions</div>
+                <pre>{project.instructions}</pre>
+            </>
+        }
         <div className="Features">
             {functionalityArray.map(feature => {
                 return (

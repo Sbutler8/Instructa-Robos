@@ -1,7 +1,8 @@
-.login {
+#login {
     color: #333;
     top: -2px;
-    margin: 0 15px;
+    margin-right: 15px;
+    margin-top: 2px;
     background-color: #fff;
     border-color: #ccc;
     background-image: none;
