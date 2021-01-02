@@ -1,6 +1,26 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin:0;
+    padding: 0;
+}
 
 i {
     color: #ccc;
+}
+#home-nav {
+    display:inline
+}
+
+#right-top-nav {
+    display: inline;
+    position: absolute;
+    right:10px;
+}
+
+#left-top-nav {
+    display:inline-grid;
+    grid-template-columns: repeat(11, 1fr) 4fr;
 }
 
 .navBar {
@@ -10,8 +30,9 @@ i {
 }
 
 .topNav {
-    display:inline-grid;
-    grid-template-columns: repeat(11, 9%);
+    display: grid;
+    grid-template-columns: 2% 30% ;
+    position: relative;
     background-color: rgb(85,85,85);
     height:35px;
 }
@@ -31,6 +52,7 @@ i {
     letter-spacing: 0.6px;
     font-size: 12px;
     padding-top:12px;
+    margin-left:10px;
 }
 
 a {
@@ -69,7 +91,7 @@ a {
     text-shadow: none;
 }
 
-#homeButton {
+#home-nav {
     margin-top:10px;
 }
 

@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { Link, useParams, Redirect } from "react-router-dom";
 import { getProjectsByCategory } from "../../store/projects";
 import './Categories.css';
-import NavigationBar from '../NavigationBar';
 
 function CategoriesPage() {
     const dispatch = useDispatch();
@@ -34,8 +33,6 @@ function CategoriesPage() {
     // }
 
     return (
-    <>
-        <NavigationBar />
         <div className="projects">
             {projectArray.map(project => {
                 return (
@@ -46,10 +43,9 @@ function CategoriesPage() {
                         </Link>
                         <div className="description">{project.description}</div>
                     </div>
-               )
+                )
             })}
         </div>
-    </>
     );
 }
 

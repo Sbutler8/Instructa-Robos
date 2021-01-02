@@ -20,7 +20,6 @@ function Navigation({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <NavigationBar />
         <Carousel />
         <LoginFormModal />
         <NavLink to="/signup">Sign Up</NavLink>

@@ -32,6 +32,11 @@ module.exports = {
         Serial.println(sensorValue);
         delay(1);        // delay in between reads for stability
       }`,
+      instructions: `
+      Connect the three wires from the potentiometer to your board. The first goes from one of the outer pins of the potentiometerto ground . The second goes from the other outer pin of the potentiometer to 5 volts. The third goes from the middle pin of the potentiometer to the analog pin A0.
+      By turning the shaft of the potentiometer, you change the amount of resistance on either side of the wiper, which is connected to the center pin of the potentiometer. This changes the voltage at the center pin. When the resistance between the center and the side connected to 5 volts is close to zero (and the resistance on the other side is close to 10k ohm), the voltage at the center pin nears 5 volts. When the resistances are reversed, the voltage at the center pin nears 0 volts, or ground. This voltage is the analog voltage that you're reading as an input.
+
+      The Arduino boards have a circuit inside called an analog-to-digital converter or ADC that reads this changing voltage and converts it to a number between 0 and 1023. When the shaft is turned all the way in one direction, there are 0 volts going to the pin, and the input value is 0. When the shaft is turned all the way in the opposite direction, there are 5 volts going to the pin and the input value is 1023. In between, analogRead() returns a number between 0 and 1023 that is proportional to the amount of voltage being applied to the pin.`,
       robotPicURL: 'https://robohash.org/a',
       userId: 1,
       createdAt: new Date(),
@@ -50,6 +55,14 @@ module.exports = {
         // put your main code here, to run repeatedly:
 
       }`,
+      instructions: `
+      The setup() function is called when a sketch starts. Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or reset of the board.
+
+      After creating a setup() function, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond as it runs. Code in the loop() section of your sketch is used to actively control the board.
+
+      The code below won't actually do anything, but it's structure is useful for copying and pasting to get you started on any sketch of your own. It also shows you how to make comments in your code.
+
+      Any line that starts with two slashes (//) will not be read by the compiler, so you can write anything you want after it. The two slashes may be put after functional code to keep comments on the same line. Commenting your code like this can be particularly helpful in explaining, both to yourself and others, how your program functions step by step.`,
       robotPicURL: 'https://robohash.org/b',
       userId: 1,
       createdAt: new Date(),
@@ -96,6 +109,46 @@ module.exports = {
       digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
       delay(1000);                       // wait for a second
     }`,
+      instructions:`
+      This example uses the built-in LED that most Arduino boards have. This LED is connected to a digital pin and its number may vary from board type to board type. To make your life easier, we have a constant that is specified in every board descriptor file. This constant is LED_BUILTIN and allows you to control the built-in LED easily. Here is the correspondence between the constant and the digital pin.
+
+      D13 - 101
+
+      D13 - Due
+
+      D1 - Gemma
+
+      D13 - Intel Edison
+
+      D13 - Intel Galileo Gen2
+
+      D13 - Leonardo and Micro
+
+      D13 - LilyPad
+
+      D13 - LilyPad USB
+
+      D13 - MEGA2560
+
+      D13 - Mini
+
+      D6 - MKR1000
+
+      D13 - Nano
+
+      D13 - Pro
+
+      D13 - Pro Mini
+
+      D13 - UNO
+
+      D13 - Yún
+
+      D13 - Zero
+
+      If you want to lit an external LED with this sketch, you need to build this circuit, where you connect one end of the resistor to the digital pin correspondent to the LED_BUILTIN constant. Connect the long leg of the LED (the positive leg, called the anode) to the other end of the resistor. Connect the short leg of the LED (the negative leg, called the cathode) to the GND. In the diagram below we show an UNO board that has D13 as the LED_BUILTIN value.
+
+      The value of the resistor in series with the LED may be of a different value than 220 ohm; the LED will lit up also with values up to 1K ohm.`,
       robotPicURL: 'https://robohash.org/c',
       userId: 1,
       createdAt: new Date(),
@@ -134,6 +187,12 @@ module.exports = {
       Serial.println(buttonState);
       delay(1);        // delay in between reads for stability
     }`,
+      instructions:`
+      Connect three wires to the board. The first two, red and black, connect to the two long vertical rows on the side of the breadboard to provide access to the 5 volt supply and ground. The third wire goes from digital pin 2 to one leg of the pushbutton. That same leg of the button connects through a pull-down resistor (here 10k ohm) to ground. The other leg of the button connects to the 5 volt supply.
+
+      Pushbuttons or switches connect two points in a circuit when you press them. When the pushbutton is open (unpressed) there is no connection between the two legs of the pushbutton, so the pin is connected to ground (through the pull-down resistor) and reads as LOW, or 0. When the button is closed (pressed), it makes a connection between its two legs, connecting the pin to 5 volts, so that the pin reads as HIGH, or 1.
+
+      If you disconnect the digital i/o pin from everything, its reading may change erratically. This is because the input is "floating" - that is, it doesn't have a solid connection to voltage or ground, and it will randomly return either HIGH or LOW. That's why you need a pull-down resistor in the circuit.`,
       robotPicURL: 'https://robohash.org/d',
       userId: 1,
       createdAt: new Date(),
@@ -183,6 +242,8 @@ module.exports = {
       // wait for 30 milliseconds to see the dimming effect
       delay(30);
     }`,
+      instructions:`
+      Connect the anode (the longer, positive leg) of your LED to digital output pin 9 on your board through a 220 ohm resistor. Connect the cathode (the shorter, negative leg) directly to ground.`,
       robotPicURL: 'https://robohash.org/e',
       userId: 1,
       createdAt: new Date(),
@@ -219,6 +280,12 @@ module.exports = {
       // print out the value you read:
       Serial.println(voltage);
     }`,
+      instructions: `
+      Connect the three wires from the potentiometer to your board. The first goes to ground from one of the outer pins of the potentiometer. The second goes to 5 volts from the other outer pin of the potentiometer. The third goes from the middle pin of the potentiometer to analog input 0.
+
+      By turning the shaft of the potentiometer, you change the amount of resistance on either side of the wiper which is connected to the center pin of the potentiometer. This changes the voltage at the center pin. When the resistance between the center and the side connected to 5 volts is close to zero (and the resistance on the other side is close to 10 kilohms), the voltage at the center pin nears 5 volts. When the resistances are reversed, the voltage at the center pin nears 0 volts, or ground. This voltage is the analog voltage that you're reading as an input.
+
+      The microcontroller of the board has a circuit inside called an analog-to-digital converter or ADC that reads this changing voltage and converts it to a number between 0 and 1023. When the shaft is turned all the way in one direction, there are 0 volts going to the pin, and the input value is 0. When the shaft is turned all the way in the opposite direction, there are 5 volts going to the pin and the input value is 1023. In between, analogRead() returns a number between 0 and 1023 that is proportional to the amount of voltage being applied to the pin.`,
       robotPicURL: 'https://robohash.org/f',
       userId: 1,
       createdAt: new Date(),
@@ -256,6 +323,10 @@ module.exports = {
         // print out the value you read:
         Serial.println(voltage);
       }`,
+      instructions: `
+      To build the circuit, connect one end of the resistor to pin 13 of the board. Connect the long leg of the LED (the positive leg, called the anode) to the other end of the resistor. Connect the short leg of the LED (the negative leg, called the cathode) to the board GND, as shown in the diagram above and the schematic below.
+
+      Most Arduino boards already have an LED attached to pin 13 on the board itself. If you run this example with no hardware attached, you should see that LED blink.`,
       robotPicURL: 'https://robohash.org/g',
       userId: 2,
       createdAt: new Date(),
@@ -316,6 +387,14 @@ module.exports = {
         digitalWrite(ledPin, LOW);
       }
     }`,
+      instructions: `
+      Connect three wires to the board. The first two, red and black, connect to the two long vertical rows on the side of the breadboard to provide access to the 5 volt supply and ground. The third wire goes from digital pin 2 to one leg of the pushbutton. That same leg of the button connects through a pull-down resistor (here 10K ohm) to ground. The other leg of the button connects to the 5 volt supply.
+
+      When the pushbutton is open (unpressed) there is no connection between the two legs of the pushbutton, so the pin is connected to ground (through the pull-down resistor) and we read a LOW. When the button is closed (pressed), it makes a connection between its two legs, connecting the pin to 5 volts, so that we read a HIGH.
+
+      You can also wire this circuit the opposite way, with a pullup resistor keeping the input HIGH, and going LOW when the button is pressed. If so, the behavior of the sketch will be reversed, with the LED normally on and turning off when you press the button.
+
+      If you disconnect the digital I/O pin from everything, the LED may blink erratically. This is because the input is "floating" - that is, it will randomly return either HIGH or LOW. That's why you need a pull-up or pull-down resistor in the circuit.`,
       robotPicURL: 'https://robohash.org/h',
       userId: 2,
       createdAt: new Date(),
@@ -411,6 +490,8 @@ module.exports = {
       // save the reading. Next time through the loop, it'll be the lastButtonState:
       lastButtonState = reading;
     }`,
+      instructions: `
+      Pushbuttons often generate spurious open/close transitions when pressed, due to mechanical and physical issues: these transitions may be read as multiple presses in a very short time fooling the program. This example demonstrates how to debounce an input, which means checking twice in a short period of time to make sure the pushbutton is definitely pressed. Without debouncing, pressing the button once may cause unpredictable results. This sketch uses the millis() function to keep track of the time passed since the button was pressed.`,
       robotPicURL: 'https://robohash.org/i',
       userId: 2,
       createdAt: new Date(),
@@ -466,6 +547,10 @@ module.exports = {
         digitalWrite(13, HIGH);
       }
     }`,
+      instructions: `
+      Connect two wires to the Arduino board. The black wire connects ground to one leg of the pushbutton. The second wire goes from digital pin 2 to the other leg of the pushbutton.
+
+      Pushbuttons or switches connect two points in a circuit when you press them. When the pushbutton is open (unpressed) there is no connection between the two legs of the pushbutton. Because the internal pull-up on pin 2 is active and connected to 5V, we read HIGH when the button is open. When the button is closed, the Arduino reads LOW because a connection to ground is completed.`,
       robotPicURL: 'https://robohash.org/j',
       userId: 2,
       createdAt: new Date(),
@@ -554,6 +639,12 @@ module.exports = {
       }
 
     }`,
+      instructions: `
+      Connect three wires to the board. The first goes from one leg of the pushbutton through a pull-down resistor (here 10k ohm) to ground. The second goes from the corresponding leg of the pushbutton to the 5 volt supply. The third connects to a digital I/O pin (here pin 2) which reads the button's state.
+
+      When the pushbutton is open (unpressed) there is no connection between the two legs of the pushbutton, so the pin is connected to ground (through the pull-down resistor) and we read a LOW. When the button is closed (pressed), it makes a connection between its two legs, connecting the pin to voltage, so that we read a HIGH. (The pin is still connected to ground, but the resistor resists the flow of current, so the path of least resistance is to +5V.)
+
+      If you disconnect the digital I/O pin from everything, the LED may blink erratically. This is because the input is "floating" - that is, not connected to either voltage or ground. It will more or less randomly return either HIGH or LOW. That's why you need a pull-down resistor in the circuit.`,
       robotPicURL: 'https://robohash.org/k',
       userId: 2,
       createdAt: new Date(),
@@ -607,6 +698,10 @@ module.exports = {
         }
       }
     }`,
+      instructions: `
+      Connect one terminal of your speaker to digital pin 8 through a 100 ohm resistor, and its other terminal to ground.
+
+      Power your three FSRs (or any other analog sensor) with 5V in parallel. Connect each sensor to analog pins 0-2, using a 10K resistor as a reference to groud on each input line.`,
       robotPicURL: 'https://robohash.org/l',
       userId: 2,
       createdAt: new Date(),
@@ -666,6 +761,8 @@ module.exports = {
     void loop() {
       // no need to repeat the melody.
     }`,
+      instructions: `
+      The code below uses an extra file, pitches.h. This file contains all the pitch values for typical notes. For example, NOTE_C4 is middle C. NOTE_FS4 is F sharp, and so forth. This note table was originally written by Brett Hagman, on whose work the tone() command was based. You may find it useful whenever you want to make musical notes.`,
       robotPicURL: 'https://robohash.org/m',
       userId: 2,
       createdAt: new Date(),
@@ -715,6 +812,8 @@ module.exports = {
       tone(8, 523, 300);
       delay(300);
     }`,
+      instructions: `
+      The tone() command works by taking over one of the Atmega's internal timers, setting it to the frequency you want, and using the timer to pulse an output pin. Since it's only using one timer, you can only play one note at a time. You can, however, play notes on different pins, sequentially. To do this, you need to turn the timer off for one pin before moving on to the next.`,
       robotPicURL: 'https://robohash.org/n',
       userId: 2,
       createdAt: new Date(),
@@ -763,6 +862,8 @@ module.exports = {
       tone(9, thisPitch, 10);
       delay(1);        // delay in between reads for stability
     }`,
+      instructions: `
+      Connect one terminal of your speaker to digital pin 9 through a 100 ohm resistor, and its other terminal to ground. Power your photoresistor with 5V, and connect it to analog 0 with the addition of a 4.7K resistor to ground.`,
       robotPicURL: 'https://robohash.org/o',
       userId: 2,
       createdAt: new Date(),
@@ -825,6 +926,8 @@ module.exports = {
       // converter to settle after the last reading:
       delay(2);
     }`,
+      instructions: `
+      Connect one pin from your pot to 5V, the center pin to analog pin 0 and the remaining pin to ground. Next, connect a 220 ohm current limiting resistor to digital pin 9, with an LED in series. The long, positive leg (the anode) of the LED should be connected to the output from the resistor, with the shorter, negative leg (the cathode) connected to ground.`,
       robotPicURL: 'https://robohash.org/p',
       userId: 3,
       createdAt: new Date(),
@@ -884,6 +987,17 @@ module.exports = {
       // stop the program for for <sensorValue> milliseconds:
       delay(sensorValue);
     }`,
+      instructions: `
+      Connect three wires to the Arduino board. The first goes to ground from one of the outer pins of the potentiometer. The second goes from 5 volts to the other outer pin of the potentiometer. The third goes from analog input 0 to the middle pin of the potentiometer.
+
+      For this example, it is possible to use the board's built in LED attached to pin 13. To use an additional LED, attach its longer leg (the positive leg, or anode), to digital pin 13 in series with the 220 ohm resistor, and it's shorter leg (the negative leg, or cathode) to the ground (GND) pin next to pin 13.
+
+      The circuit based on a photoresistor uses a resistor divider to allow the high impedence Analog input to measure the voltage. These inputs do not draw almost any current, therefore by Ohm's law the voltage measured on the other end of a resistor connected to 5V is always 5V, regardless the resistor's value. To get a voltage proportional to the photoresistor value, a resistor divider is necessary.
+      This circuit uses a variable resistor, a fixed resistor and the measurement point is in the middle of the resistors. The voltage measured (Vout) follows this formula:
+
+      Vout=Vin*(R2/(R1+R2))
+
+      where Vin is 5V, R2 is 10k ohm and R1 is the photoresistor value that ranges from 1M ohm in darkness to 10k ohm in daylight (10 lumen) and less than 1k ohm in bright light or sunlight (>100 lumen).`,
       robotPicURL: 'https://robohash.org/q',
       userId: 3,
       createdAt: new Date(),
@@ -939,6 +1053,8 @@ module.exports = {
         delay(100);
       }
     }`,
+      instructions: `
+      Connect the longer, positive legs (anodes) of 12 LEDs to digital pins 2-13 through 220 ohm current limiting resistors. Connect the shorter, negative legs (cathodes) to ground.`,
       robotPicURL: 'https://robohash.org/r',
       userId: 3,
       createdAt: new Date(),
@@ -1021,6 +1137,8 @@ module.exports = {
       // fade the LED using the calibrated value:
       analogWrite(ledPin, sensorValue);
     }`,
+      instructions: `
+      Connect an LED to digital pin 9 with a 220 ohm current limiting resistor in series. Connect a photoresistor to 5V and then to analog pin 0 with a 10K ohm resistor to ground.`,
       robotPicURL: 'https://robohash.org/s',
       userId: 3,
       createdAt: new Date(),
@@ -1071,6 +1189,8 @@ module.exports = {
         delay(30);
       }
     }`,
+      instructions: `
+      An LED connected to digital output pin 9 through a 220 ohm resistor.`,
       robotPicURL: 'https://robohash.org/t',
       userId: 3,
       createdAt: new Date(),
@@ -1144,6 +1264,8 @@ module.exports = {
       Serial.println(average);
       delay(1);        // delay in between reads for stability
     }`,
+      instructions: `
+      An LED connected to digital output pin 9 through a 220 ohm resistor.`,
       robotPicURL: 'https://robohash.org/u',
       userId: 3,
       createdAt: new Date(),
@@ -1231,6 +1353,9 @@ module.exports = {
       // go on to the next character
       thisByte++;
     }`,
+      instructions: `
+      This example demonstrates the advanced serial printing functions by generating on the serial monitor of the Arduino Software (IDE) a table of characters and their ASCII values in decimal, hexadecimal, octal, and binary.
+      None, but the board has to be connected to the computer through the serial port or the USB port.`,
       robotPicURL: 'https://robohash.org/v',
       userId: 1,
       createdAt: new Date(),
@@ -1354,6 +1479,7 @@ module.exports = {
     -----------end_max5_patcher-----------
 
     */`,
+      instructions:`Connect the 220 ohm current limiting resistor to digital pin 9, with an LED in series. The long, positive leg (the anode) of the LED should be connected to the output from the resistor, with the shorter, negative leg (the cathode) connected to ground.`,
       robotPicURL: 'https://robohash.org/Dimmer',
       userId: 2,
       createdAt: new Date(),
@@ -1515,6 +1641,8 @@ module.exports = {
     -----------end_max5_patcher-----------
 
     */`,
+      instructions: `
+      Connect a potentiometer or other analog sensor to analog input 0.`,
       robotPicURL: 'https://robohash.org/Graph',
       userId: 3,
       createdAt: new Date(),
@@ -1570,6 +1698,14 @@ module.exports = {
       Serial.write(pitch);
       Serial.write(velocity);
     }`,
+      instructions: `
+      MIDI, the Musical Instrument Digital Interface, is a useful protocol for controlling synthesizers, sequencers, and other musical devices. MIDI devices are generally grouped in to two broad classes: controllers (i.e. devices that generate MIDI signals based on human actions) and synthesizers (including samplers, sequencers, and so forth). The latter take MIDI data in and make sound, light, or some other effect.
+
+      MIDI is a serial protocol that operates at 31,250 bits per second. The board built-in serial port (all of them on the Mega as well) can send data at that rate.
+
+      MIDI bytes are divided into two types: command bytes and data bytes. Command bytes are always 128 or greater, or 0x80 to 0xFF in hexadecimal. Data bytes are always less than 127, or 0x00 to 0x7F in hex. Commands include things such as note on, note off, pitch bend, and so forth. Data bytes include things like the pitch of the note to play, the velocity, or loudness of the note, amount of pitch bend and so forth. For more details, see the MIDI specification or one of the many MIDI Protocol Guides on the Web.
+
+      MIDI data is usually notated in hexadecimal because MIDI banks and instruments are grouped in groups of 16.`,
       robotPicURL: 'https://robohash.org/Midi',
       userId: 1,
       createdAt: new Date(),
@@ -1620,6 +1756,9 @@ module.exports = {
         Serial1.write(inByte);
       }
     }`,
+      instructions: `
+      After checking the data sheet of whatever serial enabled device you choose to use for this example, make sure that it is both properly wired and powered. Connect the RX pin and TX pins of your device to the TX1 and RX1 pins of your Mega.
+      Make sure that your Mega is connected to your computer, via USB, to enable serial communication.`,
       robotPicURL: 'https://robohash.org/MultiSerialMega',
       userId: 2,
       createdAt: new Date(),
@@ -1790,6 +1929,8 @@ module.exports = {
     -----------end_max5_patcher-----------
 
     */`,
+      instructions: `
+      Many Arduino boards have a built-in LED connected to pin 13; if your board has no built-in LED, attach an external LED to pin 13. The long leg, or anode, goes to pin 13 through a 220 resistor. The short leg, or cathode, goes to ground.`,
       robotPicURL: 'https://robohash.org/PhysicalPixel',
       userId: 2,
       createdAt: new Date(),
@@ -1866,6 +2007,8 @@ module.exports = {
         }
       }
     }`,
+      instructions:`
+      This sketch uses the Serial.parseInt() function to locate values separated by a non-alphanumeric character. Often people use a comma to indicate different pieces of information (this format is commonly referred to as comma-separated-values or CSV), but other characters like a space or a period will work too. The values are parsed into integers and used to determine the color of a RGB LED. You'll use the Arduino Software (IDE) serial monitor to send strings like "5,220,70" to the board to change the light color.`,
       robotPicURL: 'https://robohash.org/ReadASCIIString',
       userId: 3,
       createdAt: new Date(),
@@ -2112,6 +2255,8 @@ module.exports = {
     -----------end_max5_patcher-----------
 
     */`,
+      instructions:`
+      Connect analog sensors to analog input pin 0 and 1 with 10K ohm resistors used as voltage dividers. Connect a pushbutton or switch to digital I/O pin 2 with a 10K ohm resistor as a reference to ground.`,
       robotPicURL: 'https://robohash.org/SerialCallResponse',
       userId: 1,
       createdAt: new Date(),
@@ -2179,6 +2324,8 @@ module.exports = {
         }
       }
     }`,
+      instructions:`
+      None, but the board has to be connected to the computer; the Arduino Software (IDE) serial monitor may be used to communicate the single or multiple characters and receive the string back.`,
       robotPicURL: 'https://robohash.org/SerialEvent',
       userId: 2,
       createdAt: new Date(),
@@ -2226,6 +2373,8 @@ module.exports = {
         Serial.write(Serial1.read());   // read it and send it out Serial (USB)
       }
     }`,
+      instructions:`
+      None, but the board has to be connected to the computer; the Arduino Software (IDE) serial monitor may be used to communicate the single or multiple characters and receive the string back.`,
       robotPicURL: 'https://robohash.org/SerialPassthrough',
       userId: 3,
       createdAt: new Date(),
@@ -2364,6 +2513,10 @@ module.exports = {
     -----------end_max5_patcher-----------
 
     */`,
+      instructions:`
+      Connect analog sensors to analog input pins 0, 1, and 2.
+
+      This circuit uses three voltage divider sub-circuits to generate analog voltages from the force-sensing resistors. a voltage divider has two resistors in series, dividing the voltage proportionally to their values.`,
       robotPicURL: 'https://robohash.org/VirtualColorMixer',
       userId: 1,
       createdAt: new Date(),
@@ -2430,6 +2583,8 @@ module.exports = {
         digitalWrite(ledPins[thisPin], LOW);
       }
     }`,
+      instructions:`
+      Connect six LEDs, with 220 ohm resistors in series, to digital pins 2-7 on your board.`,
       robotPicURL: 'https://robohash.org/Arrays',
       userId: 1,
       createdAt: new Date(),
@@ -2486,6 +2641,8 @@ module.exports = {
         digitalWrite(thisPin, LOW);
       }
     }`,
+      instructions:`
+      Connect six LEDS, with 220 ohm resistors in series, to digital pins 2-7 on your Arduino.`,
       robotPicURL: 'https://robohash.org/ForLoopIteration',
       userId: 2,
       createdAt: new Date(),
@@ -2548,6 +2705,8 @@ module.exports = {
       Serial.println(analogValue);
       delay(1);        // delay in between reads for stability
     }`,
+      instructions:`
+      The example below turns on an LED on pin 13 (the built-in LED on many Arduino boards) if the value read on an analog input goes above a certain threshold.`,
       robotPicURL: 'https://robohash.org/IfStatementConditional',
       userId: 3,
       createdAt: new Date(),
@@ -2613,6 +2772,8 @@ module.exports = {
       }
       delay(1);        // delay in between reads for stability
     }`,
+      instructions:`
+      The photoresistor is connected to analog in pin 0 using a voltage divider circuit. A 10K ohm resistor makes up the other side of the voltage divider, running from Analog in 0 to ground. The analogRead() function returns a range of about 0 to 600 from this circuit in a reasonably lit indoor space.`,
       robotPicURL: 'https://robohash.org/Switchcase',
       userId: 1,
       createdAt: new Date(),
@@ -2709,6 +2870,8 @@ module.exports = {
         sensorMin = sensorValue;
       }
     }`,
+      instructions:`
+      Connect your analog sensor (e.g. potentiometer, light sensor) on analog input 2 with a 10K ohm resistor to ground. Connect your button to digital pin, again with a 10K ohm resistor to ground. Connect your LED to digital pin 9, with a 220 ohm resistor in series.`,
       robotPicURL: 'https://robohash.org/WhileStatement',
       userId: 2,
       createdAt: new Date(),
@@ -2779,6 +2942,8 @@ module.exports = {
       // delay before next reading:
       delay(100);
     }`,
+      instructions:`
+      The accelerometer uses very little current, so it can be plugged into your board and run directly off of the output from the digital output pins. To do this, you'll use three of the analog input pins as digital I/O pins, for power and ground to the accelerometer, and for the self-test pin. You'll use the other three analog inputs to read the accelerometer's analog outputs.`,
       robotPicURL: 'https://robohash.org/ADXL3xx',
       userId: 3,
       createdAt: new Date(),
@@ -2842,6 +3007,10 @@ module.exports = {
       }
       delay(100);  // delay to avoid overloading the serial port buffer
     }`,
+      instructions:`
+      Piezos are polarized, meaning that voltage passes through them (or out of them) in a specific direction. Connect the black wire (the lower voltage) to ground and the red wire (the higher voltage) to analog pin 0. Additionally, connect a 1-megohm resistor in parallel to the Piezo element to limit the voltage and current produced by the piezo and to protect the analog input.
+
+      It is possible to acquire piezo elements without a plastic housing. These will look like a metallic disc, and are easier to use as input sensors. PIezo sensors work best when firmly pressed against, taped, or glued their sensing surface.`,
       robotPicURL: 'https://robohash.org/Knock',
       userId: 3,
       createdAt: new Date(),
@@ -2911,6 +3080,10 @@ module.exports = {
 
       delay(100);
     }`,
+      instructions:`
+      Use the small triangle on the Memsic to properly orient the sensor on your breadboard. Connect the 5V and GND pins of the Memsic 2125 to the power and ground ports on the board. Connect digital pin 2 of the board to the X out pin of the accelerometer, and digital pin 3 to the Y out pin.
+
+      Your Arduino must be connected to your computer in order for it to transmit serial data.`,
       robotPicURL: 'https://robohash.org/Memsic',
       userId: 1,
       createdAt: new Date(),
@@ -2999,6 +3172,8 @@ module.exports = {
       // take half of the distance travelled.
       return microseconds / 29 / 2;
     }`,
+      instructions:`
+      The 5V pin of the SEN136B5B is connected to the 5V pin on the board, the GND pin is connected to the GND pin, and the SIG (signal) pin is connected to digital pin 7 on the board.`,
       robotPicURL: 'https://robohash.org/Ping',
       userId: 2,
       createdAt: new Date(),
@@ -3066,6 +3241,8 @@ module.exports = {
         }
       }
     }`,
+      instructions:`
+      The bar graph - a series of LEDs in a line, such as you see on an audio display - is a common hardware display for analog sensors. It's made up of a series of LEDs in a row, an analog input like a potentiometer, and a little code in between. You can buy multi-LED bar graph displays fairly cheaply, like this one. This tutorial demonstrates how to control a series of LEDs in a row, but can be applied to any series of digital outputs.`,
       robotPicURL: 'https://robohash.org/BarGraph',
       userId: 3,
       createdAt: new Date(),
@@ -3186,6 +3363,17 @@ module.exports = {
         digitalWrite(row[thisRow], LOW);
       }
     }`,
+      instructions:`
+      LED displays are often packaged as matrixes of LEDs arranged in rows of common anodes and columns of common cathodes, or the reverse.
+      These can be very useful displays. To control a matrix, you connect both its rows and columns to your microcontroller. The columns are connected to the LEDs cathodes (see Figure 1), so a column needs to be LOW for any of the LEDs in that column to turn on. The rows are connected to the LEDs anodes, so the row needs to be HIGH for an individual LED to turn on. If the row and the column are both high or both low, no voltage flows through the LED and it doesn't turn on.
+
+      To control an individual LED, you set its column LOW and its row HIGH. To control multiple LEDs in a row, you set the row HIGH, then take the column high, then set the columns LOW or HIGH as appropriate; a LOW column will turn the corresponding LED ON, and a HIGH column will turn it off.
+
+      Tip - Pins set to OUTPUT by use of the PinMode command are set to LOW if not otherwise stated
+
+      Although there are pre-made LED matrices, you can also make your own matrix from 64 LEDs, using the schematic as shown above.
+
+      It doesn't matter which pins of the microcontroller you connect the rows and columns to, because you can assign things in software. Connected the pins in a way that makes wiring easiest. `,
       robotPicURL: 'https://robohash.org/RowColumnScanning',
       userId: 1,
       createdAt: new Date(),
@@ -3281,6 +3469,9 @@ module.exports = {
         Serial.println();
       }
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.
+      Open the serial monitor window of the Arduino Software (IDE) and type in a single character at a time, then press Send to get a report about that specific character.`,
       robotPicURL: 'https://robohash.org/CharacterAnalysis',
       userId: 1,
       createdAt: new Date(),
@@ -3357,6 +3548,8 @@ module.exports = {
       // do nothing while true:
       while (true);
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringAdditionOperator',
       userId: 1,
       createdAt: new Date(),
@@ -3438,6 +3631,8 @@ module.exports = {
       // do nothing while true:
       while (true);
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringAppendOperator',
       userId: 1,
       createdAt: new Date(),
@@ -3490,6 +3685,8 @@ module.exports = {
       // do nothing while true:
       while (true);
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringCaseChanges',
       userId: 1,
       createdAt: new Date(),
@@ -3544,6 +3741,8 @@ module.exports = {
       // do nothing while true:
       while (true);
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringCharacters',
       userId: 1,
       createdAt: new Date(),
@@ -3681,6 +3880,8 @@ module.exports = {
         }
       }
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringComparisonOperators',
       userId: 1,
       createdAt: new Date(),
@@ -3770,6 +3971,8 @@ module.exports = {
       while (true);
 
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringConstructors',
       userId: 1,
       createdAt: new Date(),
@@ -3844,6 +4047,8 @@ module.exports = {
       // do nothing while true:
       while (true);
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringIndexOf',
       userId: 1,
       createdAt: new Date(),
@@ -3903,6 +4108,8 @@ module.exports = {
         lastStringLength = txtMsg.length();
       }
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringLength',
       userId: 1,
       createdAt: new Date(),
@@ -3962,6 +4169,8 @@ module.exports = {
       // do nothing while true:
       while (true);
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringReplace',
       userId: 1,
       createdAt: new Date(),
@@ -4024,6 +4233,8 @@ module.exports = {
       // do nothing while true:
       while (true);
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringStartWithEndsWith',
       userId: 1,
       createdAt: new Date(),
@@ -4076,6 +4287,8 @@ module.exports = {
       // do nothing while true:
       while (true);
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringSubstring',
       userId: 1,
       createdAt: new Date(),
@@ -4135,6 +4348,8 @@ module.exports = {
         }
       }
     }`,
+      instructions:`
+      There is no circuit for this example, though your board must be connected to your computer via USB and the serial monitor window of the Arduino Software (IDE) should be open.`,
       robotPicURL: 'https://robohash.org/StringToInt',
       userId: 1,
       createdAt: new Date(),
@@ -4234,6 +4449,10 @@ module.exports = {
       // do nothing:
       while (true);
     }`,
+      instructions:`
+      This example uses the Keyboard library to log you out of your user session on your computer when pin 2 on your Leonardo, Micro or Due is pulled to ground. The sketch simulates the keypress in sequence of two or three keys at the same time and after a short delay it releases them.
+
+      NB: When you use the Keyboard.print() command, the Arduino takes over your computer's keyboard! To insure you don't lose control of your computer while running a sketch with this function, make sure to set up a reliable control system before you call Keyboard.print(). This sketch is designed to only send a Keyboard command after a pin has been pulled to ground.`,
       robotPicURL: 'https://robohash.org/KeyboardLogout',
       userId: 1,
       createdAt: new Date(),
@@ -4295,6 +4514,10 @@ module.exports = {
       // save the current button state for comparison next time:
       previousButtonState = buttonState;
     }`,
+      instructions:`
+      Attach one pin of the pushbutton to pin 4 on the Arduino. Attach the other pin to 5V. Use the resistor as a pull-down, providing a reference to ground, by attaching it from pin 4 to ground.
+
+      Once you've programmed your board, unplug the USB cable, open a text editor and put the text cursor at in the typing area. Connect the board to your computer through USB again and press the button to write in the document.`,
       robotPicURL: 'https://robohash.org/KeyboardMessage',
       userId: 1,
       createdAt: new Date(),
@@ -4407,6 +4630,10 @@ module.exports = {
       // wait for the sweet oblivion of reprogramming:
       while (true);
     }`,
+      instructions:`
+      This example uses the Keyboard library to open a new Arduino Software (IDE) sketch window, send keyboard commands that type in the Blink example, and reprograms the board. After running this sketch and connecting pin 2 to ground using the pushbutton, the board will have a new program, Blink.
+
+      NB: When you use the Keyboard.print() command, the Arduino takes over your computer's keyboard! To insure you don't lose control of your computer while running a sketch with this function, make sure to set up a reliable control system before you call Keyboard.print(). This sketch is designed to only send Keyboard commands after digital pin 2 is pulled to ground.`,
       robotPicURL: 'https://robohash.org/KeyboardReprogram',
       userId: 1,
       createdAt: new Date(),
@@ -4455,6 +4682,11 @@ module.exports = {
         Keyboard.write(inChar + 1);
       }
     }`,
+      instructions:`
+      This example listens for a byte coming from the serial port. When received, the board sends a keystroke back to the computer. The sent keystroke is one higher than what is received, so if you send an "a" from the serial monitor, you'll receive a "b" from the board connected to the computer. A "1" will return a "2" and so on.
+      Connect your board to your computer with a micro-USB cable.
+
+      Once programmed, open your serial monitor and send a byte. The board will reply with a keystroke that is one number higher.`,
       robotPicURL: 'https://robohash.org/KeyboardSerial',
       userId: 1,
       createdAt: new Date(),
@@ -4557,6 +4789,13 @@ module.exports = {
       }
 
     }`,
+      instructions:`
+      Connect your board to your computer with a micro-USB cable.
+
+      Once programmed, open your serial monitor and send a byte. The board will reply with a keystroke that is one number higher.
+      Attach one end of the the pushbuttons to pins 2, 3, 4, 5, and 6 on the board. Attach the other end to +5V. Use the resistors as pull-downs, providing a reference to ground for the switches. Attach them from the pin connecting to the board to ground.
+
+      Once you've programmed your board, unplug the USB cable and open a text editor. Connect your board to your computer and press the buttons to write in the document as you move the cursor.`,
       robotPicURL: 'https://robohash.org/KeyboardMouseControl',
       userId: 1,
       createdAt: new Date(),
@@ -4650,6 +4889,17 @@ module.exports = {
       // a delay so the mouse doesn't move too fast:
       delay(responseDelay);
     }`,
+      instructions:`
+      Using the Mouse library, you can controls a computer's onscreen cursor with an Arduino Leonardo, Micro, or Due. This particular example uses five pushbuttons to move the onscreen cursor. Four of the buttons are directional (up, down, left, right) and one is for a left mouse click
+
+      Cursor movement from the Arduino is always relative. Every time an input is read, the cursor's position is updated relative to it's current position.
+
+      Whenever one of the directional buttons is pressed, the Arduino will move the mouse, mapping a HIGH input to a range of 5 in the appropriate direction.
+
+      The fifth button is for controlling a left click from a mouse. When pressed, the board sends a press to the computer. When the button is released, the computer will recognize the event.
+
+      NB: When you use the Mouse.move() command, the Arduino takes over your computer's cursor! To insure you don't lose control of your computer while running a sketch with this function, make sure to set up a controller before you call Mouse.move(). This sketch only updates the cursor position when a button is pressed.
+      Connect your board to your computer with a micro-USB cable. The buttons are connected to digital inputs from 2 to 6. Make sure you use 10k ohm pulldown resistors.`,
       robotPicURL: 'https://robohash.org/ButtonMouseControl',
       userId: 1,
       createdAt: new Date(),
@@ -4779,6 +5029,16 @@ module.exports = {
       // return the distance for this axis:
       return distance;
     }`,
+      instructions:`
+      Using the Mouse library, you can controls a computer's onscreen cursor with an Arduino Leonardo, Micro, or Due. This particular example uses a pushbutton to turn on and off mouse control with a joystick.
+
+      Cursor movement from the Arduino is always relative. So every time the analog input is read, the cursor's position is updated relative to it's current position.
+
+      Two analog inputs ranging from 0 to 1023 are translated to ranges of -12 to 12. The sketch assumes that the joystick resting values are around the middle of the range, but that they vary within a threshold.
+
+      The pushbutton allows you to toggle mouse control on and off. As an option you may connect a status LED to pin 5 that lights upwhen the Arduino is controlling the mouse. A second pushbutton may be connected with another 10k ohm pulldown (to GND) resistor to D3 to act as the left click of the mouse.
+
+      NB: When you use the Mouse.move() command, the Arduino takes over your computer's cursor! To insure you don't lose control of your computer while running a sketch with this function, make sure to set up a controller before you call Mouse.move(). This sketch includes a pushbutton to toggle the mouse control state, so you can turn on and off mouse control.`,
       robotPicURL: 'https://robohash.org/JoystickMouseControl',
       userId: 1,
       createdAt: new Date(),

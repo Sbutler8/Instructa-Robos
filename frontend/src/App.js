@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
-import Navigation from "./components/Navigation";
 import UserHomePage from "./components/UserHomePage";
 import ProjectPage from "./components/ProjectPage";
 import CategoriesPage from "./components/CategoriesPage";
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function App() {
 
   return isLoaded && (
     <>
-    <Navigation isLoaded={isLoaded} />
+    <NavigationBar isLoaded={isLoaded} />
     {isLoaded && (
       <Switch>
         <Route exact path="/signup">

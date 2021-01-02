@@ -6,6 +6,8 @@ import { Link, NavLink, useParams, useHistory } from 'react-router-dom';
 import ProfileButton from '../Navigation/ProfileButton';
 
 import './NavigationBar.css';
+import Carousel from '../Carousel';
+import LoginFormModal from '../LoginFormModal';
 
 function NavigationBar() {
   const dispatch = useDispatch();
@@ -42,23 +44,35 @@ function NavigationBar() {
     <>
       <div className="navBar">
         <div className="topNav">
-        {sessionUser && (
-          <NavLink id="homeButton" exact to="/">
-            <i className="fas fa-home"></i>
-          </NavLink>
-          )}
-          {categoryArray.map(category => {
-            return (
-                <div key={category.id} className="category">
-                    <Link to={`/categories/${category.name}`}>
-                        <div id="category">{category.name}</div>
-                    </Link>
-                </div>
-                )
-            })}
+          <div id="home-nav">
             {sessionUser && (
-              <ProfileButton user={sessionUser} />
-            )}
+              <NavLink id="homeButton" exact to="/">
+                <i className="fas fa-home"></i>
+              </NavLink>
+              )}
+          </div>
+          <div id="left-top-nav">
+              {categoryArray.map(category => {
+                return (
+                    <div key={category.id} className="category">
+                        <Link to={`/categories/${category.name}`}>
+                            <div id="category">{category.name}</div>
+                        </Link>
+                    </div>
+                    )
+                })}
+          </div>
+          <div id="right-top-nav">
+              {sessionUser && (
+                <ProfileButton user={sessionUser}/>
+              )}
+          </div>
+          {!sessionUser && (
+            <div id="right-top-nav">
+              <LoginFormModal />
+              <NavLink to="/signup">Sign Up</NavLink>
+            </div>
+          )}
         </div>
         <div className="bottomNav">
           <img id="logo" src="../../images/instructa-robos-logo.png" alt=''/>
@@ -68,6 +82,11 @@ function NavigationBar() {
           )} */}
           <button id="projectButton" onClick={() => history.push("/")}>Projects</button>
         </div>
+        {!sessionUser && (
+          <>
+            <Carousel />
+          </>
+        )}
       </div>
       <script>
         { !sessionUser && (linksToSpecificPointOnPage()) }
