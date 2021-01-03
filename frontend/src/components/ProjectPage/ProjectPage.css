@@ -8,15 +8,10 @@
     margin-bottom: 10px;
 }
 
-/* #modal-content {
-    height: 80%;
-    width:80%;
-    max-height: 880px;
-    max-width:550px;
-} */
-pre {
+.code {
     position: relative;
     white-space: pre-wrap;
+    float: center;
     border: 4mm solid rgba(0, 147, 162, 0.651);
     margin: auto;
     width: 50%;
@@ -26,9 +21,21 @@ pre {
     padding: 10px;
 }
 
+.instructionsText {
+    padding: 0 90px;
+    white-space: pre-wrap;
+    font-size: 17px;
+    line-height: 1.65;
+    font-family: myriad-pro,helvetica,arial,sans-serif;
+    text-align: left;
+    color: #555;
+}
+
 .uploadedImg {
     height: 200px;
     width: auto;
+    max-width: 280px;
+    align-items: center;
 }
 
 .projectAuthor {
@@ -36,6 +43,47 @@ pre {
     color: #999;
     text-align: center;
     margin-bottom: 5px;
+}
+
+.features {
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    margin-left: 10px;
+    margin-top:10px;
+}
+
+.feature {
+    width: 300px;
+    padding: 6px;
+    margin:5px;
+    border: 1mm solid rgba(197, 210, 211, 0.651);
+    border-radius: 5px;;
+}
+
+.featureTitle {
+    font-family: "myriad-pro",Helvetica,Arial,sans-serif;
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+text {
+    font-family: "myriad-pro",Helvetica,Arial,sans-serif;
+    display: inline-block;
+    color: #333;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.description {
+    font-family: "myriad-pro",Helvetica,Arial,sans-serif;
+    display: inline;
+    color: #333;
+    font-size: 15px;
+    font-weight: 300;
 }
 
 #addFunctionalityButton {

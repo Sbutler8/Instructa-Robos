@@ -64,18 +64,19 @@ function ProjectPage() {
         </pre>
         { project.instructions &&
             <>
-                <div className="instructions" >Instructions</div>
-                <pre>{project.instructions}</pre>
+                <div className="instructions">Instructions</div>
+                <pre className="instructionsText">{project.instructions}</pre>
             </>
         }
-        <div className="Features">
+        <div className="features">
             {functionalityArray.map(feature => {
                 return (
                     <div key={feature.id} className="feature">
-                    <div >{feature.name}</div>
-                    <div className="description">{feature.code}</div>
-                    <img className="uploadedImg" src={feature.vidPic}></img>
-            </div>
+                        <div className="featureTitle">{feature.name}</div>
+                        <img className="uploadedImg" src={feature.vidPic} alt=''></img>
+                        <text>Code Changes</text>
+                        <div className="description">{feature.code}</div>
+                    </div>
                )
             })}
         </div>

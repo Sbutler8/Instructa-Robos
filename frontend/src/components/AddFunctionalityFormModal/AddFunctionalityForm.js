@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { addFunctionality } from '../../store/projects'
 import { getFeatures } from "../../store/functionalities";
+import  { moveEyes }  from '../LoginFormModal/LoginForm.js';
 import './AddedFunctionalityForm.css';
 import '../../context/Modal.css';
 
@@ -39,17 +40,11 @@ function AddFunctionalityForm({setShowModal, setNewFeature}) {
 
   return (
     <form onSubmit={handleSubmit}>
-        <div className="eyebox" >
-            <div className="eye" id="lefteye"></div>
-            <div className="eye"id="righteye"></div>
+        <div className="eyebox-add-feature" >
+            <div className="eye-add-feature" id="lefteye-add-feature"></div>
+            <div className="eye-add-feature"id="righteye-add-feature"></div>
         </div>
         <img className="robotImg" src="../../images/editCode.png" alt='' />
-        {/* <ul>
-            {console.log('ERRORS:',errors)}
-            {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-            ))}
-        </ul> */}
         <label>Name:</label>
         <input id="name"
             placeholder="Description of Added Functionality"
@@ -71,6 +66,9 @@ function AddFunctionalityForm({setShowModal, setNewFeature}) {
             <input type="file" onChange={updateFile} />
         </label>
         <button id="addYourPiece" type="submit">Add Your Piece</button>
+        <script>
+        {document.querySelector('body').addEventListener('mousemove', moveEyes)}
+        </script>
     </form>
   );
 }

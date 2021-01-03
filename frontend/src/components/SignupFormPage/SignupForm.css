@@ -1,4 +1,73 @@
-form > .mid {
+/* form > .mid {
     display: grid;
     grid-template-areas: repeat(4, 1fr) / repeat(2, 25%, 70%);
+} */
+form > .mid {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    max-width: 600px;
+    align-items: center;
+}
+
+button {
+    color: #333;
+    top: -2px;
+    margin: 0 15px;
+    background-color: #fff;
+    border-color: #ccc;
+    background-image: none;
+    border: 1px solid rgb(182, 180, 180);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-shadow: none;
+}
+
+.robotImg {
+    height: 35%;
+    width:auto;
+}
+
+.eyebox-signup {
+    display: flex;
+    flex-direction: row;
+    width:30px;
+    margin-left:17px;
+}
+
+.eyebox-signup .eye-signup {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    top: 29px;
+    left:172px;
+    box-shadow: 0 5px 45px rgba(0,0,0,0.2),
+                inset 0 0 5px #DBA74F,
+                inset 0 0 5px #DBA74F;
+}
+
+.eyebox-signup .eye-signup::before {
+    content:'';
+    position: absolute;
+    top: 45%;
+    left: 3.5px;
+    transform: translate(-50%, 50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+#righteye-signup {
+    margin-left: 10px;
 }

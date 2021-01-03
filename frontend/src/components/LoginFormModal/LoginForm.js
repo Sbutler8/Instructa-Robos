@@ -3,6 +3,17 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginFormModal.css';
 
+export const moveEyes = (event) => {
+    const eye = document.querySelectorAll('.eye');
+    eye.forEach(eye => {
+      let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+      let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+      let radian = Math.atan2(event.pageX - x, event.pageY - y);
+      let rotation = (radian * (100 / Math.PI) * -1) + 320;
+      eye.style.transform = "rotate("+rotation+"deg)"
+    })
+  }
+
 function LoginForm() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
@@ -19,16 +30,6 @@ function LoginForm() {
     );
   };
 
-  const moveEyes = (event) => {
-    const eye = document.querySelectorAll('.eye');
-    eye.forEach(eye => {
-      let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
-      let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
-      let radian = Math.atan2(event.pageX - x, event.pageY - y);
-      let rotation = (radian * (100 / Math.PI) * -1) + 320;
-      eye.style.transform = "rotate("+rotation+"deg)"
-    })
-  }
 
   return (
     <form onSubmit={handleSubmit}>
