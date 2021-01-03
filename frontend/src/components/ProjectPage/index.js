@@ -74,7 +74,7 @@ function ProjectPage() {
                     <div key={feature.id} className="feature">
                         <div className="featureTitle">{feature.name}</div>
                         <img className="uploadedImg" src={feature.vidPic} alt=''></img>
-                        <text>Code Changes</text>
+                        {/* <textarea>Code Changes</textarea> */}
                         <div className="description">{feature.code}</div>
                     </div>
                )

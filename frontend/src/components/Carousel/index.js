@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useSelector, useDispatch} from 'react-redux';
 import Slider from "react-slick";
+import { useEffect, useState } from "react";
+import { getCategories } from "../../store/categories";
+import { getProjectsByCategory } from "../../store/projects";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Carousel.css';
 
 function Carousel() {
+    const dispatch = useDispatch();
+    useEffect(() => dispatch(getCategories()), [dispatch]);
+    const categories = useSelector((state) => state.categories);
+    const categoryArray = Object.values(categories);
+
+    useEffect(() => {
+        categoryArray.map(category => {
+            dispatch(getProjectsByCategory(category.name))
+        })
+    }, [dispatch]);
+
     let settings = {
         dots: true,
         infinite: true,
@@ -18,9 +32,9 @@ function Carousel() {
     const carouselImages = [
         "https://content.instructables.com/ORIG/FO9/LX23/JK10S8O5/FO9LX23JK10S8O5.jpg?auto=webp&frame=1&width=1024&height=1024&fit=bounds&md=9c9257ab64de620c334ec03f2a25b929",
         "https://content.instructables.com/ORIG/FJA/HU79/KJBFHTLK/FJAHU79KJBFHTLK.jpg?auto=webp&frame=1&width=1024&height=1024&fit=bounds&md=7d919b26c85995fc6317a489e9af4b9f",
-        "../../images/carousel3.jpg",
-        "../../images/carousel4.jpg",
-        "../../images/carousel7.jpg"
+        "https://images.unsplash.com/photo-1517055729445-fa7d27394b48?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OXx8YXJkdWlub3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        "https://images.unsplash.com/photo-1559819614-c5bdc6c7191e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+        "https://images.unsplash.com/photo-1558137623-ce933996c730?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=995&q=80"
     ];
 
 return (
@@ -30,15 +44,15 @@ return (
                 return (
                 <div key={carouselImage} className="img-container">
                     <img className="carousel" src={carouselImage} alt=''></img>
+                    <hr id="picture-top"></hr>
+                    <div id="pictureText">YOURS FOR THE MAKING</div>
+                    <div id="pictureSmallText">Instructarobos is a community for people who like to make things. Come explre, share, and make your next project with us!</div>
+                    <hr id="picture-bottom"></hr>
                 </div>
                 )
             })}
         </Slider>
 
-        <div className="textOverPicture">
-            <div id="pictureText">YOURS FOR THE MAKING</div>
-            <p id="pictureSmallText">Instructarobos is a community for people who like to make things. Come explre, share, and make your next project with us!</p>
-        </div>
 
 
         <div className="midSection">
@@ -56,10 +70,20 @@ return (
             </div>
         </div>
 
-        <hr></hr>
+        <hr id="divider" ></hr>
 
         <div className="midSectionBlocks">
             <div className="midSectionTitles">Explore Projects</div>
+            {categoryArray.map(category => {
+                return (
+                    <div key={category.id} className="category">
+                        <div to={`/categories/${category.name}`}>
+                            <div className="category">{category.name}</div>
+                            {/* {dispatch(getProjectsByCategory(category.name))} */}
+                        </div>
+                    </div>
+                    )
+                })}
         </div>
     </>
   );

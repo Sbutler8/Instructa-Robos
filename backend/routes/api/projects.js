@@ -18,7 +18,7 @@ router.get('/', asyncHandler(async function(_req, res) {
         where: { projectId: req.params.id }
       },
     });
-    
+
     const addedFunctions = await AddedFunctionality.findAll({
       where: {
         projectId: req.params.id,
@@ -30,7 +30,7 @@ router.get('/', asyncHandler(async function(_req, res) {
 router.post('/', singleMulterUpload("image"), asyncHandler(async function (req, res) {
   const addedFeatureImageUrl = await singlePublicFileUpload(req.file);
   const addedFeature = await AddedFunctionality.create( {name: req.body.name, code: req.body.code, vidPic: addedFeatureImageUrl, projectId: req.body.projectId } );
-  res.json({ addedFeature });
+  res.json(addedFeature);
   })
 );
 
