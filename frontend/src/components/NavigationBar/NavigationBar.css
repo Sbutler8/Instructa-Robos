@@ -8,8 +8,10 @@ html, body {
 i {
     color: #ccc;
 }
+
 #home-nav {
-    display:inline
+    display:inline;
+    margin-left:5px;
 }
 
 #right-top-nav {
@@ -71,7 +73,7 @@ a {
     margin-left: 4px;
 }
 
-#projectButton {
+#projectButton, #signUpButton {
     color: #333;
     top: -2px;
     margin: 0 15px;
@@ -89,6 +91,10 @@ a {
     vertical-align: middle;
     white-space: nowrap;
     text-shadow: none;
+}
+
+#signUpButton {
+    margin-top:2px;
 }
 
 #home-nav {

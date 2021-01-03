@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { addFunctionality } from '../../store/projects'
 import { getFeatures } from "../../store/functionalities";
 import './AddedFunctionalityForm.css';
+import '../../context/Modal.css';
 
 function AddFunctionalityForm({setShowModal, setNewFeature}) {
 
@@ -42,7 +43,7 @@ function AddFunctionalityForm({setShowModal, setNewFeature}) {
             <div className="eye" id="lefteye"></div>
             <div className="eye"id="righteye"></div>
         </div>
-        <img className="robotImg" src="../../images/instructa-robos-logo.png" alt='' />
+        <img className="robotImg" src="../../images/editCode.png" alt='' />
         {/* <ul>
             {console.log('ERRORS:',errors)}
             {errors.map((error, idx) => (
@@ -57,6 +58,7 @@ function AddFunctionalityForm({setShowModal, setNewFeature}) {
             onChange={(e) => setName(e.target.value)}
             required
         />
+        <label>Code</label>
         <input id="code"
             placeholder="Added/Edited Code"
             type="text"
@@ -68,7 +70,7 @@ function AddFunctionalityForm({setShowModal, setNewFeature}) {
         <label  className="custom-file-upload">Upload Photo
             <input type="file" onChange={updateFile} />
         </label>
-        <button type="submit">Add Your Piece</button>
+        <button id="addYourPiece" type="submit">Add Your Piece</button>
     </form>
   );
 }

@@ -1,19 +1,23 @@
 import React, { useSelector, useDispatch} from 'react-redux';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCategories } from "../../store/categories";
 import { getCategory } from "../../store/projects";
 import { Link, NavLink, useParams, useHistory } from 'react-router-dom';
 import ProfileButton from '../Navigation/ProfileButton';
+import { Modal } from '../../context/Modal';
 
 import './NavigationBar.css';
 import Carousel from '../Carousel';
 import LoginFormModal from '../LoginFormModal';
+import SignupFormPage from '../SignupFormPage';
 
 function NavigationBar() {
   const dispatch = useDispatch();
   const { projectId } = useParams();
   const history = useHistory();
   useEffect(() => dispatch(getCategories()), [dispatch]);
+
+  const [showModal, setShowModal] = useState(false);
 
   const category = useSelector((state) => state.currentCategory);
   const categories = useSelector((state) => state.categories);
@@ -70,7 +74,16 @@ function NavigationBar() {
           {!sessionUser && (
             <div id="right-top-nav">
               <LoginFormModal />
-              <NavLink to="/signup">Sign Up</NavLink>
+              <button id="signUpButton" onClick={() => {
+                setShowModal(true)
+                }}>SignUp
+              </button>
+              {showModal && (
+                <Modal onClose={() => setShowModal(false)} name="signUp">
+                    <SignupFormPage setShowModal={setShowModal} />
+                </Modal>
+            )}
+              {/* <NavLink to="/signup">Sign Up</NavLink> */}
             </div>
           )}
         </div>

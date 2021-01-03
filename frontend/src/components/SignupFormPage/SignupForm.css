@@ -1,0 +1,4 @@
+form > .mid {
+    display: grid;
+    grid-template-areas: repeat(4, 1fr) / repeat(2, 25%, 70%);
+}

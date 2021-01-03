@@ -57,7 +57,7 @@ function ProjectPage() {
                 }}>Add Functionality
             </button>
             {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
+                <Modal onClose={() => setShowModal(false)} name="addFeature">
                     <AddFunctionalityForm setShowModal={setShowModal} setNewFeature={setNewFeature} />
                 </Modal>
             )}

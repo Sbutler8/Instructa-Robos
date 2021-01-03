@@ -1,9 +1,13 @@
+form {
+    max-height: -webkit-fill-available;
+}
+
 input[type="file"] {
     display: none;
 }
 
-label, input {
-    float: left;
+input {
+    overflow-wrap: break-word;
 }
 
 .custom-file-upload {
@@ -21,8 +25,35 @@ label, input {
 #code {
     width: 250%;
     height: 300px;
+    text-align: left;
+}
+
+#code::placeholder {
+    margin-top:0;
 }
 
 #name {
     float: left;
+}
+
+#addYourPiece {
+    position: absolute;
+    bottom:10px;
+    right:10px;
+    color: #333;
+    padding-right: 100px;
+    background-color: #fff;
+    border-color: #ccc;
+    background-image: none;
+    border: 1px solid rgb(182, 180, 180);
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-shadow: none;
 }
