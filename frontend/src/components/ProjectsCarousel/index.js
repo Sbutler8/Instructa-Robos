@@ -2,13 +2,11 @@ import React, { useSelector, useDispatch} from 'react-redux';
 import { useEffect } from "react";
 import { Link, useParams, Redirect } from "react-router-dom";
 import { getProjectsByCategory } from "../../store/projects";
-import './Categories.css';
+import './ProjectsCarousel.css';
 
-function CategoriesPage({ category }) {
+function ProjectsCarouselPage({ category }) {
     const dispatch = useDispatch();
     const { categoryName } = useParams();
-
-    // useEffect(() => dispatch(getProjects()), [dispatch]);
 
     useEffect(() => {
         if (!categoryName) {
@@ -24,27 +22,20 @@ function CategoriesPage({ category }) {
 
     const projectArray = Object.values(projects);
 
-    console.log('pROJECTS', projects)
-
-    if (!user) {
-
-        return <Redirect to="/"/>;
-    }
-
     if (!projects) {
         return null;
     }
 
     return (
-        <div className="projects">
+        <div className="projects-carousel">
             {projectArray.map(project => {
                 return (
-                    <div key={project.id} className="project">
-                        <img id="robotPic" src={project.robotPicURL} alt=''></img>
+                    <div key={project.id} className="project-carousel">
+                        <img id="robotPic-carousel" src={project.robotPicURL} alt=''></img>
                         <Link to={`/projects/${project.id}`} >
                             <div >{project.name}</div>
                         </Link>
-                        <div className="description">{project.description}</div>
+                        <div className="description-carousel">{project.description}</div>
                     </div>
                 )
             })}
@@ -52,4 +43,4 @@ function CategoriesPage({ category }) {
     );
 }
 
-export default CategoriesPage;
+export default ProjectsCarouselPage;

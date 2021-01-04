@@ -1,0 +1,18 @@
+.projects-carousel {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.project-carousel {
+    width: 150px;
+    margin:10px;
+}
+
+#robotPic-carousel {
+    width: 150px;
+}
+
+.description-carousel {
+    font-size: 13px;
+}

@@ -1,8 +1,8 @@
 import React, { useSelector, useDispatch} from 'react-redux';
 import Slider from "react-slick";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getCategories } from "../../store/categories";
-import { getProjectsByCategory } from "../../store/projects";
+import ProjectsCarouselPage from '../ProjectsCarousel';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './Carousel.css';
@@ -12,12 +12,6 @@ function Carousel() {
     useEffect(() => dispatch(getCategories()), [dispatch]);
     const categories = useSelector((state) => state.categories);
     const categoryArray = Object.values(categories);
-
-    useEffect(() => {
-        categoryArray.map(category => {
-            dispatch(getProjectsByCategory(category.name))
-        })
-    }, [dispatch]);
 
     let settings = {
         dots: true,
@@ -43,17 +37,15 @@ return (
             {carouselImages.map(carouselImage => {
                 return (
                 <div key={carouselImage} className="img-container">
-                    <img className="carousel" src={carouselImage} alt=''></img>
+                    <img className="carouselImg" src={carouselImage} alt=''></img>
                     <hr id="picture-top"></hr>
                     <div id="pictureText">YOURS FOR THE MAKING</div>
-                    <div id="pictureSmallText">Instructarobos is a community for people who like to make things. Come explre, share, and make your next project with us!</div>
+                    <div id="pictureSmallText">Instructarobos is a community for people who like to make things. Come explore, share, and make your next project with us!</div>
                     <hr id="picture-bottom"></hr>
                 </div>
                 )
             })}
         </Slider>
-
-
 
         <div className="midSection">
             <div className="midSectionBlocks">
@@ -79,12 +71,17 @@ return (
                     <div key={category.id} className="category">
                         <div to={`/categories/${category.name}`}>
                             <div className="category">{category.name}</div>
-                            {/* {dispatch(getProjectsByCategory(category.name))} */}
+                            <ProjectsCarouselPage category={category.name}/>
                         </div>
                     </div>
                     )
                 })}
         </div>
+        <script>
+            {document.addEventListener("click", () => {
+
+            })}
+        </script>
     </>
   );
 }

@@ -10,11 +10,13 @@ import './NavigationBar.css';
 import Carousel from '../Carousel';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormPage from '../SignupFormPage';
+import Footer from '../Footer';
 
 function NavigationBar() {
   const dispatch = useDispatch();
   const { projectId } = useParams();
   const history = useHistory();
+
   useEffect(() => dispatch(getCategories()), [dispatch]);
 
   const [showModal, setShowModal] = useState(false);
@@ -32,7 +34,7 @@ function NavigationBar() {
   const categoryArray = Object.values(categories);
 
   const linksToSpecificPointOnPage = () => {
-    const categoryLinks = document.querySelectorAll("Link");
+    const categoryLinks = document.querySelectorAll(".category");
     console.log('CATEGORY LINKS:', categoryLinks)
     const projectButton = document.querySelector("#projectButton");
 
@@ -43,6 +45,11 @@ function NavigationBar() {
       })
     })
   }
+
+  // const hrefLocation = () => {
+  //   const topNavCategories = document.querySelectorAll(".category");
+  //   console.log(topNavCategories.innerHTML)
+  // }
 
   return (
     <>
@@ -98,11 +105,12 @@ function NavigationBar() {
         {!sessionUser && (
           <>
             <Carousel />
+            <Footer />
           </>
         )}
       </div>
       <script>
-        { !sessionUser && (linksToSpecificPointOnPage()) }
+        {/* { !sessionUser && (document.addEventListener("DOMContentLoaded",hrefLocation())) } */}
       </script>
     </>
   );
