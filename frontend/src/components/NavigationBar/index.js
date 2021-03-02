@@ -66,7 +66,7 @@ function NavigationBar() {
               {categoryArray.map(category => {
                 return (
                     <div key={category.id} className="category">
-                        <Link to={`/categories/${category.name}`}>
+                        <Link to={`/categories/${category.name}`} href={`${sessionUser} ? '': ${category.name}`}>
                             <div id="category">{category.name}</div>
                         </Link>
                     </div>

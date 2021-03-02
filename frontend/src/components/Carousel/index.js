@@ -70,7 +70,7 @@ return (
                 return (
                     <div key={category.id} className="category">
                         <div to={`/categories/${category.name}`}>
-                            <div className="category">{category.name}</div>
+                            <div id={category.name}>{category.name}</div>
                             <ProjectsCarouselPage category={category.name}/>
                         </div>
                     </div>

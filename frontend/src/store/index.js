@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import projectReducer, {currentCategoryReducer} from './projects';
 import categoryReducer from './categories';
 import functionalityReducer from './functionalities';
+import groupProjectsReducer from './projectGroups';
 import sessionReducer from './session';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   categories: categoryReducer,
   currentCategory: currentCategoryReducer,
   functionalities: functionalityReducer,
+  groupProjects: groupProjectsReducer,
 });
 
 let enhancer;
