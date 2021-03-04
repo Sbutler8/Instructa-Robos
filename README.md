@@ -1,7 +1,7 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/dakotabenger/flavorgram-menoitios">
+  <a href="https://instructa-robos.herokuapp.com/">
     <img src="https://raw.githubusercontent.com/Sbutler8/Instructa-Robos/master/frontend/public/images/robot.png" alt="Logo" width="auto" height="120">
   </a>
   
