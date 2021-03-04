@@ -1,3 +1,9 @@
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+<!--ReactSkipperStart -->
+
 <br />
 <p align="center">
   <a href="https://instructa-robos.herokuapp.com/">
@@ -44,3 +50,13 @@ This application is made for embedded system Arduino lovers. Instructa-Robos all
 #### Automatic upload of every added feature to gain access to the most recent renditions of each project.
 ![Alt text](https://raw.githubusercontent.com/Sbutler8/Instructa-Robos/master/frontend/public/images/multiAddedFunctionalities.png)
 
+[contributors-shield]: https://img.shields.io/github/contributors/Sbutler8/Instructa-Robos.svg?style=for-the-badge
+[contributors-url]: https://github.com/Sbutler8/Instructa-Robos/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Sbutler8/Instructa-Robos.svg?style=for-the-badge
+[forks-url]: https://github.com/Sbutler8/Instructa-Robos/network/members
+[stars-shield]: https://img.shields.io/github/stars/Sbutler8/Instructa-Robos.svg?style=for-the-badge
+[stars-url]: https://github.com/Sbutler8/Instructa-Robos/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Sbutler8/Instructa-Robos.svg?style=for-the-badge
+[issues-url]: https://github.com/Sbutler8/Instructa-Robos/issues
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/samantha-butler-410675178/
