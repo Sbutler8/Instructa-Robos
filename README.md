@@ -32,6 +32,15 @@ This application is made for embedded system Arduino lovers. Instructa-Robos all
 6. Open browser to http://localhost:3000/
 
 ### Features
+#### Easy to find navigation. With each personalized project categorized the user can find exactly what they are looking for in no time at all.
+![Alt text](https://raw.githubusercontent.com/Sbutler8/Instructa-Robos/master/frontend/public/images/navBar.png)
 
+#### Each project includes a display of the code used within the project as well as step by step instructions on how you or others might implement it yourselves.  
+![Alt text](https://raw.githubusercontent.com/Sbutler8/Instructa-Robos/master/frontend/public/images/individualProject.png)
 
+#### Want to add on to what is already there? No problem! Just click on Add Functionality within each project and you can build off of what already exists or alter the previous code to add your own twist on each project.
+![Alt text](https://raw.githubusercontent.com/Sbutler8/Instructa-Robos/master/frontend/public/images/addedFeature.png)
+
+#### Automatic upload of every added feature to gain access to the most recent renditions of each project.
+![Alt text](https://raw.githubusercontent.com/Sbutler8/Instructa-Robos/master/frontend/public/images/multiAddedFunctionalities.png)
 
