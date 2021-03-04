@@ -52,6 +52,10 @@ This application is made for embedded system Arduino lovers. Instructa-Robos all
 6. Open browser to http://localhost:3000/
 
 ### Features
+
+![Alt text](https://github.com/Sbutler8/Instructa-Robos/blob/master/frontend/public/solo_project_1_screen_recording.gif)
+<!--ReactSkipperStart -->
+
 #### Easy to find navigation. With each personalized project categorized the user can find exactly what they are looking for in no time at all.
 ![Alt text](https://raw.githubusercontent.com/Sbutler8/Instructa-Robos/master/frontend/public/images/navBar.png)
 
