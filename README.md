@@ -31,3 +31,7 @@ This application is made for embedded system Arduino lovers. Instructa-Robos all
 5. Open new terminal and start frontend `cd ../frontend && npm start`
 6. Open browser to http://localhost:3000/
 
+### Features
+
+
+
