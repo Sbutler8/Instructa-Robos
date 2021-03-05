@@ -35,7 +35,6 @@ function NavigationBar() {
 
   const linksToSpecificPointOnPage = () => {
     const categoryLinks = document.querySelectorAll(".category");
-    console.log('CATEGORY LINKS:', categoryLinks)
     const projectButton = document.querySelector("#projectButton");
 
     categoryLinks.forEach(category => {

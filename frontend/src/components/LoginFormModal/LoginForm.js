@@ -30,8 +30,14 @@ function LoginForm() {
     );
   };
 
+  const demoLogin = () => {
+    setCredential('demo@user.io');
+    setPassword('password');
+    // dispatch(sessionActions.login({ credential: 'demo@user.io', password: 'password' }))
+  }
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <div className="eyebox" >
         <div className="eye" id="lefteye"></div>
@@ -39,7 +45,8 @@ function LoginForm() {
       </div>
       <img src="../../images/instructa-robos-logo.png" alt='' />
       <ul>
-        {errors.map((error, idx) => (
+        {errors &&
+          errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul>
@@ -62,6 +69,8 @@ function LoginForm() {
         {document.querySelector('body').addEventListener('mousemove', moveEyes)}
       </script>
     </form>
+    <button className="demo" type="button" onClick={() => demoLogin()}>Demo</button>
+    </>
   );
 }
 

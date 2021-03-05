@@ -12,7 +12,6 @@ function CategoriesPage({ category }) {
 
     useEffect(() => {
         if (!categoryName) {
-            console.log('CATEGORY', category)
             dispatch(getProjectsByCategory(category))
         } else {
             dispatch(getProjectsByCategory(categoryName))
@@ -23,8 +22,6 @@ function CategoriesPage({ category }) {
     const user = useSelector((state) => state.session.user);
 
     const projectArray = Object.values(projects);
-
-    console.log('pROJECTS', projects)
 
     if (!user) {
 

@@ -10,7 +10,6 @@ function ProjectsCarouselPage({ category }) {
 
     useEffect(() => {
         if (!categoryName) {
-            console.log('CATEGORY', category)
             dispatch(getProjectsByCategory(category))
         } else {
             dispatch(getProjectsByCategory(categoryName))

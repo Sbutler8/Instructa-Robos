@@ -645,7 +645,7 @@ module.exports = {
       When the pushbutton is open (unpressed) there is no connection between the two legs of the pushbutton, so the pin is connected to ground (through the pull-down resistor) and we read a LOW. When the button is closed (pressed), it makes a connection between its two legs, connecting the pin to voltage, so that we read a HIGH. (The pin is still connected to ground, but the resistor resists the flow of current, so the path of least resistance is to +5V.)
 
       If you disconnect the digital I/O pin from everything, the LED may blink erratically. This is because the input is "floating" - that is, not connected to either voltage or ground. It will more or less randomly return either HIGH or LOW. That's why you need a pull-down resistor in the circuit.`,
-      robotPicURL: 'https://robohash.org/k',
+      robotPicURL: 'https://robohash.org/kk',
       userId: 2,
       createdAt: new Date(),
       updatedAt: new Date(),

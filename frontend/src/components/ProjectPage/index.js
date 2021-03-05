@@ -30,7 +30,6 @@ function ProjectPage() {
     const functionalityArray = Object.values(features);
 
     function addLineNumbers (code) {
-        console.log(typeof code)
         return code.split('\n').map((line, index) => `${index + 1}. ${line}`).join('\n')
     }
 
