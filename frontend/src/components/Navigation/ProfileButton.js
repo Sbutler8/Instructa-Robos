@@ -17,11 +17,11 @@ function ProfileButton({ user }) {
         <i className="fas fa-user-circle" />
       </button>
       <div className="dropdown-content">
-        <a>{user.username}</a>
-        <a>{user.email}</a>
-        <a>
+        <div>{user.username}</div>
+        <div>{user.email}</div>
+        <div>
           <button id="logoutButton" onClick={logout}>Log Out</button>
-        </a>
+        </div>
       </div>
     </div>
   );

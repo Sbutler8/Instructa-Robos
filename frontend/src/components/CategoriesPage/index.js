@@ -12,7 +12,7 @@ function CategoriesPage({ category }) {
 
     useEffect(() => {
         if (!categoryName) {
-            dispatch(getProjectsByCategory(category))
+            // dispatch(getProjectsByCategory(category))
         } else {
             dispatch(getProjectsByCategory(categoryName))
         }

@@ -29,7 +29,7 @@ function NavigationBar() {
     if (sessionUser && projectId) {
       dispatch(getCategory(projectId))
     }
-  }, [projectId, dispatch])
+  }, [projectId, sessionUser, dispatch])
 
   const categoryArray = Object.values(categories);
 
@@ -62,10 +62,22 @@ function NavigationBar() {
               )}
           </div>
           <div id="left-top-nav">
-              {categoryArray.map(category => {
+              {sessionUser &&
+                categoryArray.map(category => {
                 return (
                     <div key={category.id} className="category">
-                        <Link to={`/categories/${category.name}`} href={`${sessionUser} ? '': ${category.name}`}>
+                        <Link to={`/categories/${category.name}`}>
+                            <div id="category">{category.name}</div>
+                        </Link>
+                    </div>
+                    )
+                })}
+
+              {!sessionUser &&
+                categoryArray.map(category => {
+                return (
+                    <div key={category.id} className="category">
+                        <Link href={`#${category.name}`} to='' onClick={() => window.location.replace(`#${category.name}`)}>
                             <div id="category">{category.name}</div>
                         </Link>
                     </div>
@@ -108,9 +120,6 @@ function NavigationBar() {
           </>
         )}
       </div>
-      <script>
-        {/* { !sessionUser && (document.addEventListener("DOMContentLoaded",hrefLocation())) } */}
-      </script>
     </>
   );
 }

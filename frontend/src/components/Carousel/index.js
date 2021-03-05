@@ -46,7 +46,6 @@ return (
                 )
             })}
         </Slider>
-
         <div className="midSection">
             <div className="midSectionBlocks">
                 <div className="midSectionTitles">step-by-step</div>

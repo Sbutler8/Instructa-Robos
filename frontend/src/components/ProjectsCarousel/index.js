@@ -10,7 +10,7 @@ function ProjectsCarouselPage({ category }) {
 
     useEffect(() => {
         if (!categoryName) {
-            dispatch(getProjectsByCategory(category))
+            // dispatch(getProjectsByCategory(category))
         } else {
             dispatch(getProjectsByCategory(categoryName))
         }
@@ -27,9 +27,9 @@ function ProjectsCarouselPage({ category }) {
 
     return (
         <div className="projects-carousel">
-            {projectArray.map(project => {
+            {projectArray.map((project,i) => {
                 return (
-                    <div key={project.id} className="project-carousel">
+                    <div key={i} className="project-carousel">
                         <img id="robotPic-carousel" src={project.robotPicURL} alt=''></img>
                         <Link to={`/projects/${project.id}`} >
                             <div >{project.name}</div>

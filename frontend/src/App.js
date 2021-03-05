@@ -17,7 +17,7 @@ function App() {
 
   return isLoaded && (
     <>
-    <NavigationBar isLoaded={isLoaded} />
+    <NavigationBar isLoaded={isLoaded}/>
     {isLoaded && (
       <Switch>
         <Route exact path="/signup">
