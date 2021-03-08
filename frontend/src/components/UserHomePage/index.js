@@ -1,5 +1,5 @@
-import React, { useSelector, useDispatch} from 'react-redux';
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch} from 'react-redux';
 import { getProjects } from "../../store/projects";
 import { Link, Redirect } from 'react-router-dom';
 import './UserHomePage.css';

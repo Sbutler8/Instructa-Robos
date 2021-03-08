@@ -1,5 +1,5 @@
-import React, { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { getCategories } from "../../store/categories";
 import './Footer.css';
 

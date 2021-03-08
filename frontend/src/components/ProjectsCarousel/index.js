@@ -1,7 +1,7 @@
-import React, { useSelector, useDispatch} from 'react-redux';
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch} from 'react-redux';
 import { Link, useParams, Redirect } from "react-router-dom";
-import { getProjectsByCategory } from "../../store/projects";
+import { getAllCategoriesAndProjects } from "../../store/projects";
 import './ProjectsCarousel.css';
 
 function ProjectsCarouselPage({ category }) {
@@ -9,12 +9,8 @@ function ProjectsCarouselPage({ category }) {
     const { categoryName } = useParams();
 
     useEffect(() => {
-        if (!categoryName) {
-            // dispatch(getProjectsByCategory(category))
-        } else {
-            dispatch(getProjectsByCategory(categoryName))
-        }
-    }, [categoryName, dispatch]);
+        dispatch(getAllCategoriesAndProjects())
+    }, [dispatch]);
 
     const projects = useSelector((state) => state.projects);
     const user = useSelector((state) => state.session.user);

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
-const { Project, AddedFunctionality, Category, CategoriesandProject } = require('../../db/models');
+const { Project, AddedFunctionality, Category, CategoriesAndProject } = require('../../db/models');
 const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3');
 
 router.get('/', asyncHandler(async function(_req, res) {
@@ -33,5 +33,11 @@ router.post('/', singleMulterUpload("image"), asyncHandler(async function (req, 
   res.json(addedFeature);
   })
 );
+
+router.get('/all', asyncHandler(async function(_req, _res) {
+  const categoriesAndProjects = await CategoriesAndProject.findAll();
+  console.log('CHECK HERE-------->',categoriesAndProjects)
+  res.json({ categoriesAndProjects });
+}));
 
 module.exports = router;

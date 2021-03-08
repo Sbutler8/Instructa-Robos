@@ -9,3 +9,4 @@ module.exports = (sequelize, DataTypes) => {
   };
   return CategoriesAndProject;
 };
+

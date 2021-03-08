@@ -1,5 +1,5 @@
-import React, { useSelector, useDispatch} from 'react-redux';
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch} from 'react-redux';
 import { useParams, Redirect } from "react-router-dom";
 import { getProjectDetails  } from "../../store/projects";
 import { getCategory } from "../../store/projects";

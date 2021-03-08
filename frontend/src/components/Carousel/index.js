@@ -1,6 +1,6 @@
-import React, { useSelector, useDispatch} from 'react-redux';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch} from 'react-redux';
 import Slider from "react-slick";
-import { useEffect } from "react";
 import { getCategories } from "../../store/categories";
 import ProjectsCarouselPage from '../ProjectsCarousel';
 import "slick-carousel/slick/slick.css";

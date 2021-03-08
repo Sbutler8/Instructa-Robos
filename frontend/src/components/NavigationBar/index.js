@@ -1,5 +1,5 @@
-import React, { useSelector, useDispatch} from 'react-redux';
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch} from 'react-redux';
 import { getCategories } from "../../store/categories";
 import { getCategory } from "../../store/projects";
 import { Link, NavLink, useParams, useHistory } from 'react-router-dom';

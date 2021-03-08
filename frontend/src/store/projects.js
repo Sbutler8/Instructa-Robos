@@ -45,6 +45,11 @@ export const getProjectsByCategory = (categoryName) => async (dispatch) => {
   dispatch(load(res.data.selectedProjects));
 };
 
+export const getAllCategoriesAndProjects = () => async (dispatch) => {
+  const res = await fetch(`/api/projects/all`);
+  // dispatch(load(res.data.categoriesAndProjects));
+};
+
 export const addFunctionality = (formObj) => async (dispatch) => {
   const { name,code,vidPic, projectId} = formObj;
   const formData = new FormData();

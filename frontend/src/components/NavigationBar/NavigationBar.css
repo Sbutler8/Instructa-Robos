@@ -1,6 +1,6 @@
 html, body {
     max-width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     margin:0;
     padding: 0;
     scroll-behavior: smooth;
@@ -28,14 +28,18 @@ i {
 
 .navBar {
     display:flex;
+    position: sticky;
+    top: 0;
     flex-direction: column;
     width:100%;
 }
 
 .topNav {
     display: grid;
+    position: sticky;
+    top: 0;
+    z-index: 2;
     grid-template-columns: 2% 30% ;
-    position: relative;
     background-color: rgb(85,85,85);
     height:35px;
 }
