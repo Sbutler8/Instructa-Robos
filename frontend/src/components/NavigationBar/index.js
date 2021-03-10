@@ -40,16 +40,10 @@ function NavigationBar() {
 
     categoryLinks.forEach(category => {
       category.addEventListener("click", (event) => {
-        console.log('EVENT', event.target)
         category.setAttribute("href", event.target)
       })
     })
   }
-
-  // const hrefLocation = () => {
-  //   const topNavCategories = document.querySelectorAll(".category");
-  //   console.log(topNavCategories.innerHTML)
-  // }
 
   return (
     <>

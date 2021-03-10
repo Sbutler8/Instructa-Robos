@@ -14,7 +14,6 @@ function ProjectsCarouselPage({ categoryId }) {
     let projects = useSelector(state => state.pairs)
 
     const projectArray = Object.values(projects);
-    console.log('project Array',projectArray)
 
     if (!projects && !projectArray) {
         return null;

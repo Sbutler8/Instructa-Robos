@@ -7,7 +7,6 @@ const loadAll = (categoryId,CategoriesAndProjects) => ({
 });
 
 export const getAllCategoriesAndProjects = (categoryId) => async (dispatch) => {
-  console.log('STORE',categoryId)
   const res = await fetch(`/api/projects/all/${categoryId}`);
   dispatch(loadAll(categoryId,res.data.categoriesAndProjects));
 };
