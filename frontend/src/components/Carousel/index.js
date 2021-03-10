@@ -70,17 +70,12 @@ return (
                     <div key={category.id} className="category">
                         <div to={`/categories/${category.name}`}>
                             <div id={category.name}>{category.name}</div>
-                            <ProjectsCarouselPage category={category.name}/>
+                            <ProjectsCarouselPage categoryId={category.id}/>
                         </div>
                     </div>
                     )
                 })}
         </div>
-        <script>
-            {document.addEventListener("click", () => {
-
-            })}
-        </script>
     </>
   );
 }

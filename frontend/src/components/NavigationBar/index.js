@@ -31,6 +31,7 @@ function NavigationBar() {
     }
   }, [projectId, sessionUser, dispatch])
 
+
   const categoryArray = Object.values(categories);
 
   const linksToSpecificPointOnPage = () => {

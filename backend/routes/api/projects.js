@@ -14,7 +14,7 @@ router.get('/', asyncHandler(async function(_req, res) {
     const project = await Project.findByPk(Number(req.params.id));
     const category = await Category.findOne({
       through: {
-        model: CategoriesandProject,
+        model: CategoriesAndProject,
         where: { projectId: req.params.id }
       },
     });
@@ -34,10 +34,17 @@ router.post('/', singleMulterUpload("image"), asyncHandler(async function (req, 
   })
 );
 
-router.get('/all', asyncHandler(async function(_req, _res) {
-  const categoriesAndProjects = await CategoriesAndProject.findAll();
-  console.log('CHECK HERE-------->',categoriesAndProjects)
-  res.json({ categoriesAndProjects });
+router.get('/all/:categoryId', asyncHandler(async function(req, res) {
+
+  const categoryId = req.params.categoryId;
+
+  const categoriesAndProjects = await Project.findAll({
+    include: {
+      model: Category,
+      where: {id:req.params.categoryId}
+    }
+  });
+  res.json( { categoriesAndProjects });
 }));
 
 module.exports = router;

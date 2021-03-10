@@ -4,11 +4,17 @@ const LOAD = 'project/load';
 const LOAD_ONE = 'project/loadOne';
 const LOAD_SELECTED = 'project/loadSelected';
 const ADD_FEATURE = 'project/addFeature';
+// const LOAD_ALL = 'project/loadAll';
 
 const load = projects => ({
     type: LOAD,
     projects,
   });
+
+// const loadAll = (categoryId,CategoriesAndProjects) => ({
+//   type: LOAD_ALL,
+//   categoryId, CategoriesAndProjects,
+// });
 
 const loadOne = project => ({
   type: LOAD_ONE,
@@ -45,10 +51,12 @@ export const getProjectsByCategory = (categoryName) => async (dispatch) => {
   dispatch(load(res.data.selectedProjects));
 };
 
-export const getAllCategoriesAndProjects = () => async (dispatch) => {
-  const res = await fetch(`/api/projects/all`);
-  // dispatch(load(res.data.categoriesAndProjects));
-};
+// export const getAllCategoriesAndProjects = (categoryId) => async (dispatch) => {
+//   console.log('STORE',categoryId)
+//   const res = await fetch(`/api/projects/all/${categoryId}`);
+//   console.log('FE RES', res.data)
+//   dispatch(loadAll(categoryId,res.data.categoriesAndProjects));
+// };
 
 export const addFunctionality = (formObj) => async (dispatch) => {
   const { name,code,vidPic, projectId} = formObj;
@@ -81,6 +89,14 @@ const projectReducer = (state = initialState, action) => {
     case LOAD_ONE:{
       return action.project;
       }
+    // case LOAD_ALL:{
+    //   // action.CategoriesAndProjects.forEach(project => {
+    //   //   state[prject.categoryId]=[...project]
+    //   // })
+    //   console.log('Storeeee-->', action.CategoriesAndProjects)
+    //   // state.categoriesAndProjects = action.CategoriesAndProjects
+    //   return {...state, ['categoriesAndProjects']:{[action.categoryId]:action.CategoriesAndProjects}}
+    //   }
     default:
       return state;
   }

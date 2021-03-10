@@ -5,6 +5,7 @@ import categoryReducer from './categories';
 import functionalityReducer from './functionalities';
 import groupProjectsReducer from './projectGroups';
 import sessionReducer from './session';
+import pairsReducer from './pairs';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -12,7 +13,7 @@ const rootReducer = combineReducers({
   categories: categoryReducer,
   currentCategory: currentCategoryReducer,
   functionalities: functionalityReducer,
-  groupProjects: groupProjectsReducer,
+  pairs: pairsReducer,
 });
 
 let enhancer;

@@ -7,6 +7,7 @@ import UserHomePage from "./components/UserHomePage";
 import ProjectPage from "./components/ProjectPage";
 import CategoriesPage from "./components/CategoriesPage";
 import NavigationBar from "./components/NavigationBar";
+import Carousel from "./components/Carousel";
 
 function App() {
   const dispatch = useDispatch();
