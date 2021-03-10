@@ -25,7 +25,7 @@ function ProjectsCarouselPage({ categoryId }) {
                 return (
                     <div key={i} className="project-carousel">
                         <img id="robotPic-carousel" src={project.robotPicURL} alt=''></img>
-                        <Link to={`/projects/${project.id}`} >
+                        <Link to='' onClick={() => alert('Please sign in to view project details.')} >
                             <div >{project.name}</div>
                         </Link>
                         <div className="description-carousel">{project.description}</div>
