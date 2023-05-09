@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "migrate:up": "npx sequelize-cli db:migrate",
+    "migrate:undo": "npx sequelize-cli db:migrate:undo",
     "sequelize": "sequelize",
     "sequelize-cli": "sequelize-cli",
     "start": "per-env",
